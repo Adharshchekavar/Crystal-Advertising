@@ -1,0 +1,710 @@
+/* ── Outdoor Advertising & Structures — White Minimalist / Apple Scroll ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+    --exh-black: #0a0a0a;
+    --exh-white: #ffffff;
+    --exh-off: #f7f6f3;
+    --exh-muted: #8a8680;
+    --exh-dim: #c4c0b8;
+    --exh-ink: #1a1916;
+    --exh-border: #e8e5df;
+    --exh-gold: #b8963e;
+    --exh-gold-soft: #d4b06a;
+}
+
+/* ── Base ── */
+.exh-page {
+    background: var(--exh-white);
+    min-height: 100vh;
+}
+
+.exh-main {
+    background: var(--exh-white);
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    padding-top: 80px;
+    color: var(--exh-ink);
+}
+
+/* ── Hero ── */
+.exh-hero {
+    position: relative;
+    min-height: 96vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--exh-black);
+}
+
+.exh-hero-img-wrap {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.exh-hero-item {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: exh-hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes exh-hero-rise {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.exh-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.70);
+    transform: scale(1.04);
+    transition: transform 8s ease;
+}
+
+.exh-hero:hover .exh-hero-img {
+    transform: scale(1.0);
+}
+
+.exh-hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 5rem 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Breadcrumb */
+.exh-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2.5rem;
+}
+
+.exh-bc-link {
+    font-size: 11px;
+    color: rgba(227, 201, 51, 0.833);
+    text-decoration: none;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color .2s;
+}
+
+.exh-bc-link:hover {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.exh-bc-sep {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.exh-bc-current {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.28);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Hero text */
+.exh-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--exh-gold-soft);
+    margin: 0 0 1.2rem;
+}
+
+.exh-eyebrow-dark {
+    color: var(--exh-gold);
+}
+
+.exh-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0 0 2rem;
+}
+
+.exh-gold {
+    color: var(--exh-gold-soft);
+    font-style: italic;
+}
+
+.exh-hero-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.52);
+    line-height: 1.95;
+    margin: 0 0 2.75rem;
+    max-width: 480px;
+    letter-spacing: 0.01em;
+}
+
+.exh-quote-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem 2.5rem;
+    background: var(--exh-white);
+    color: var(--exh-ink);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background .25s, color .25s, transform .2s;
+}
+
+.exh-quote-btn::after {
+    content: '→';
+    font-size: 13px;
+    transition: transform .2s;
+}
+
+.exh-quote-btn:hover {
+    background: var(--exh-gold);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.exh-quote-btn:hover::after {
+    transform: translateX(4px);
+}
+
+/* ── What's Included ── */
+.exh-included {
+    background: var(--exh-white);
+    padding: 8rem 4rem;
+}
+
+.exh-included-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.exh-section-header {
+    margin-bottom: 6rem;
+    max-width: 600px;
+}
+
+.exh-section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(34px, 4.5vw, 58px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.0;
+    color: var(--exh-ink);
+    margin: 1rem 0 0;
+}
+
+.exh-section-title .exh-gold {
+    color: var(--exh-gold);
+}
+
+/* Rows */
+.exh-rows {
+    display: flex;
+    flex-direction: column;
+}
+
+.exh-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    border-top: 1px solid var(--exh-border);
+    padding: 6rem 0;
+}
+
+.exh-row:last-child {
+    border-bottom: 1px solid var(--exh-border);
+}
+
+.exh-row-reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.exh-row-reverse .exh-row-media {
+    order: 2;
+    padding-left: 5rem;
+    padding-right: 0;
+}
+
+.exh-row-reverse .exh-row-text {
+    order: 1;
+    padding-right: 5rem;
+    padding-left: 3rem;
+}
+
+/* Text block */
+.exh-row-text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    padding-right: 2rem;
+}
+
+.exh-row:not(.exh-row-reverse) .exh-row-text {
+    padding-left: 4rem;
+    padding-right: 2rem;
+}
+
+.exh-row-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--exh-border);
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: -0.3rem;
+}
+
+.exh-row-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    color: var(--exh-ink);
+    margin: 0 0 1.5rem;
+}
+
+.exh-row-rule {
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: var(--exh-gold);
+    margin: 0 0 1.75rem;
+}
+
+.exh-row-desc {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.95;
+    color: var(--exh-muted);
+    letter-spacing: 0.01em;
+    margin: 0;
+}
+
+/* Media */
+.exh-row-media {
+    position: relative;
+}
+
+.exh-row:not(.exh-row-reverse) .exh-row-media {
+    padding-left: 0;
+}
+
+.exh-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: visible;
+}
+
+.exh-media-single img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12);
+}
+
+.exh-media-frame {
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border: 1px solid var(--exh-border);
+    border-radius: 3px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.exh-row-reverse .exh-media-frame {
+    inset: 12px 12px -12px -12px;
+}
+
+/* Stacked images */
+.exh-media-stack {
+    aspect-ratio: 4 / 3;
+}
+
+.exh-media-base {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12);
+}
+
+.exh-media-overlay {
+    position: absolute;
+    right: 0;
+    bottom: -8%;
+    width: 50%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 3px;
+    border: 6px solid var(--exh-white);
+    box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.18);
+}
+
+.exh-row-reverse .exh-media-base {
+    margin-left: auto;
+}
+
+.exh-row-reverse .exh-media-overlay {
+    right: auto;
+    left: 0;
+}
+
+/* ── Scroll Fade / Slide Animations ── */
+.exh-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exh-fade.exh-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.exh-fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exh-fade-left.exh-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.exh-fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.exh-fade-right.exh-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.exh-row .exh-row-text {
+    transition-delay: 0.12s;
+}
+
+.exh-row .exh-row-media {
+    transition-delay: 0s;
+}
+
+/* ── Why Us ── */
+.exh-why {
+    padding: 7rem 4rem;
+    background: var(--exh-off);
+    border-top: 1px solid var(--exh-border);
+    border-bottom: 1px solid var(--exh-border);
+}
+
+.exh-why-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.exh-why-desc {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--exh-muted);
+    line-height: 1.95;
+    margin: 1.5rem 0 0;
+    letter-spacing: 0.01em;
+}
+
+.exh-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--exh-border);
+    border: 1px solid var(--exh-border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.exh-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 2.5rem 2rem;
+    background: var(--exh-white);
+    align-items: flex-start;
+}
+
+.exh-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--exh-ink);
+    letter-spacing: -2px;
+    line-height: 1;
+}
+
+.exh-stat-label {
+    font-size: 10px;
+    color: var(--exh-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+}
+
+/* ── CTA ── */
+.exh-cta {
+    padding: 7rem 4rem;
+    background: var(--exh-white);
+}
+
+.exh-cta-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+}
+
+.exh-cta-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.0;
+    color: var(--exh-ink);
+    margin: 1rem 0 0;
+}
+
+.exh-cta-title .exh-gold {
+    color: var(--exh-gold);
+}
+
+/* ── Divider ── */
+.exh-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--exh-border);
+    margin: 0;
+}
+
+/* ── Clickable images ── */
+.exh-media-single img,
+.exh-media-base,
+.exh-media-overlay {
+    cursor: zoom-in;
+}
+
+/* ── Lightbox ── */
+.exh-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(10, 10, 10, 0.92);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    opacity: 0;
+    animation: exh-lb-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes exh-lb-in {
+    to {
+        opacity: 1;
+    }
+}
+
+.exh-lightbox.exh-lb-closing {
+    animation: exh-lb-out 0.22s ease forwards;
+}
+
+@keyframes exh-lb-out {
+    to {
+        opacity: 0;
+    }
+}
+
+.exh-lb-img-wrap {
+    position: relative;
+    max-width: min(90vw, 1080px);
+    max-height: 88vh;
+    transform: scale(0.88) translateY(20px);
+    animation: exh-lb-img-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes exh-lb-img-in {
+    to {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.exh-lightbox.exh-lb-closing .exh-lb-img-wrap {
+    animation: exh-lb-img-out 0.22s ease forwards;
+}
+
+@keyframes exh-lb-img-out {
+    to {
+        transform: scale(0.9) translateY(16px);
+        opacity: 0;
+    }
+}
+
+.exh-lb-img {
+    display: block;
+    max-width: 100%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 60px 120px -20px rgba(0, 0, 0, 0.9);
+}
+
+.exh-lb-close {
+    position: absolute;
+    top: -44px;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.18s;
+    user-select: none;
+}
+
+.exh-lb-close:hover {
+    background: rgba(255, 255, 255, 0.18);
+    transform: scale(1.1);
+}
+
+.exh-lb-caption {
+    position: absolute;
+    bottom: -38px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+    .exh-why-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .exh-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .exh-included {
+        padding: 5rem 2rem;
+    }
+
+    .exh-why {
+        padding: 5rem 2rem;
+    }
+
+    .exh-cta {
+        padding: 5rem 2rem;
+    }
+
+    .exh-row,
+    .exh-row-reverse {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 4rem 0;
+    }
+
+    .exh-row-reverse .exh-row-media,
+    .exh-row:not(.exh-row-reverse) .exh-row-media {
+        order: 1;
+        padding: 0 0 2.5rem 0;
+    }
+
+    .exh-row-reverse .exh-row-text,
+    .exh-row:not(.exh-row-reverse) .exh-row-text {
+        order: 2;
+        padding: 0;
+    }
+
+    .exh-media-frame,
+    .exh-row-reverse .exh-media-frame {
+        inset: 8px -8px -8px 8px;
+    }
+
+    .exh-cta-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .exh-hero-content {
+        padding: 3rem 1.5rem;
+    }
+
+    .exh-included {
+        padding: 4rem 1.5rem;
+    }
+
+    .exh-why {
+        padding: 4rem 1.5rem;
+    }
+
+    .exh-cta {
+        padding: 4rem 1.5rem;
+    }
+
+    .exh-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .exh-title {
+        letter-spacing: -2px;
+    }
+}

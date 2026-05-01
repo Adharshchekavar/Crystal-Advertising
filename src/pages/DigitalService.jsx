@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../styles/DigitalService.css';
 
 // Hero
@@ -208,13 +209,26 @@ export default function DigitalService() {
 
     return (
         <div className="dig-page" ref={pageRef}>
+            <SEO
+                title="Digital Solutions — Website, App & E-commerce Development | Crystal Advertising UAE"
+                description="Digital solutions in UAE: e-commerce websites, web development, mobile apps, digital marketing, graphic design & UI/UX. Crystal Advertising — Ras Al Khaimah."
+                path="/services/digital"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Digital Solutions', url: '/services/digital' },
+                ]}
+                serviceSchema={{
+                    name: 'Digital Solutions',
+                    description: 'E-commerce, website development, app development, digital marketing and graphic design services in UAE.',
+                }}
+            />
             <Navbar />
             <main className="dig-main">
 
                 {/* ── Hero ── */}
                 <section className="dig-hero">
                     <div className="dig-hero-img-wrap">
-                        <img src={heroImg} alt="Digital Solutions" className="dig-hero-img" />
+                        <img src={heroImg} alt="Crystal Advertising digital solutions — web development and marketing UAE" className="dig-hero-img" />
                         <div className="dig-hero-overlay" />
                     </div>
                     <div className="dig-hero-content">
@@ -233,7 +247,12 @@ export default function DigitalService() {
                             we build the digital infrastructure that grows your brand,
                             reaches your audience, and converts attention into results.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="dig-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="dig-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -315,9 +334,12 @@ export default function DigitalService() {
                             </h2>
                         </div>
                         <div className="dig-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="dig-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="dig-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

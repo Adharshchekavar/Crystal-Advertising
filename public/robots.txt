@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://crystaladvertising.ae/sitemap.xml
+
+# Disallow development/admin paths
+Disallow: /admin/
+Disallow: /.env

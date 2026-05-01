@@ -7,7 +7,7 @@ const SERVICES = [
   { label: 'UV Printing', path: '/services/uv-printing' },
   { label: 'Outdoor Graphics', path: '/services/outdoor' },
   { label: 'Promotional Merchandise', path: '/services/promotional' },
-  { label: 'Interior & Surface Solutions', path: '/services/ceramic' },
+  { label: 'Interior & Surface Solutions', path: '/services/interior' },
   { label: 'Digital Solutions', path: '/services/digital' },
   { label: 'Outdoor Advertising & Structures', path: '/services/exhibition' },
 ];
@@ -100,9 +100,9 @@ const Navbar = () => {
 
           <Link to="/portfolio" className={location.pathname === '/portfolio' ? 'nav-active' : ''}>Portfolio</Link>
 
-          <a href="/contact" className="btn-contact" target="_blank" rel="noreferrer">
+          <Link to="/contact" className={`btn-contact${location.pathname === '/contact' ? ' nav-active' : ''}`}>
             Contact Us
-          </a>
+          </Link>
         </div>
 
       </div>

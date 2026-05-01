@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/ServicePage.css';
+import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -97,6 +98,8 @@ function HeroSlideshow() {
                     key={i}
                     className={`sp-slide ${i === active ? 'sp-slide--active' : ''} ${i === prev ? 'sp-slide--prev' : ''}`}
                     style={{ backgroundImage: `url(${s.img})` }}
+                    role="img"
+                    aria-label={s.label}
                 />
             ))}
 
@@ -186,6 +189,12 @@ export default function ServicePage() {
 
     return (
         <div className="sp-page">
+            <SEO
+                title="Our Services — Signage, Printing & Branding Solutions | Crystal Advertising UAE"
+                description="Explore Crystal Advertising's full range of services: signage, UV printing, outdoor advertising, promotional merchandise, interior solutions, digital & exhibition stands. Ras Al Khaimah, UAE."
+                path="/services"
+                breadcrumbs={[{ name: 'Services', url: '/services' }]}
+            />
             <Navbar />
 
             {/* ── Hero ── */}
@@ -215,7 +224,6 @@ export default function ServicePage() {
                 {/* Scroll cue */}
                 <div className="sp-scroll-cue">
                     <span className="sp-scroll-line" />
-                    <span className="sp-scroll-text"></span>
                 </div>
             </section>
 
@@ -234,7 +242,12 @@ export default function ServicePage() {
                             engineered to bring your vision to life with precision and craft.
                             30+ years of excellence across the UAE and GCC.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="sp-intro-link">
+                        <a
+                            href="https://wa.me/971528588613?text=I%20Would%20like%20to%20know%20more%20about%20your%20services."
+                            target="_blank"
+                            rel="noreferrer"
+                            className="sp-intro-link"
+                        >
                             Get in touch
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -268,10 +281,10 @@ export default function ServicePage() {
                         </p>
                     </div>
                     <div className="sp-cta-right">
-                        <a href="mailto:crystaladvertising777@gmail.com" className="sp-cta-btn">
+                        <Link to="/contact" className="sp-cta-btn">
                             Get a Free Quote
-                        </a>
-                        <a href="tel:+971000000000" className="sp-cta-phone">
+                        </Link>
+                        <a href="tel:+971 52 858 8613" className="sp-cta-phone">
                             Or call us directly →
                         </a>
                     </div>

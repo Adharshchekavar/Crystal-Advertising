@@ -4,6 +4,8 @@ import { motion, useScroll, useTransform, useInView, animate } from 'framer-moti
 import '../styles/HomePage.css';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
+import heroImg from '../assets/hero.png';
 
 // -------------------------------------------------------------
 // ASSETS
@@ -28,82 +30,84 @@ import img9 from '../assets/recent-works/img9.png';
 import img10 from '../assets/recent-works/img10.png';
 import img11 from '../assets/recent-works/img11.jpeg';
 import img12 from '../assets/recent-works/img12.png';
-import img13 from '../assets/recent-works/img13.png';
-import img14 from '../assets/recent-works/img14.png';
-import img15 from '../assets/recent-works/img15.png';
-import img16 from '../assets/recent-works/img16.png';
-import img17 from '../assets/recent-works/img17.png';
-import img18 from '../assets/recent-works/img18.png';
-import img19 from '../assets/recent-works/img19.png';
-import img20 from '../assets/recent-works/img20.png';
-import img21 from '../assets/recent-works/img21.png';
-import img22 from '../assets/recent-works/img22.png';
-import img23 from '../assets/recent-works/img23.png';
-import img24 from '../assets/recent-works/img24.png';
-import img25 from '../assets/recent-works/img25.png';
-import img26 from '../assets/recent-works/img26.png';
-import img27 from '../assets/recent-works/img27.png';
-import img28 from '../assets/recent-works/img28.png';
-import img29 from '../assets/recent-works/img29.png';
-import img30 from '../assets/recent-works/img30.jpeg';
-import img31 from '../assets/recent-works/img31.jpeg';
-import img32 from '../assets/recent-works/img32.jpeg';
-import img33 from '../assets/recent-works/img33.jpeg';
-import img34 from '../assets/recent-works/img34.jpeg';
-import img35 from '../assets/recent-works/img35.png';
-import img36 from '../assets/recent-works/img36.png';
 
 import ClientsSection from '../components/ClientsSection';
 import LocationSection from '../components/LocationSection';
 
+const EASE = [0.22, 1, 0.36, 1];
+
 // -------------------------------------------------------------
-// HERO
+// HERO — hero.png background with SignageService-style gradient
 // -------------------------------------------------------------
 function Hero() {
     const { scrollY } = useScroll();
-    const contentY = useTransform(scrollY, [0, 600], [0, 150]);
-    const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-
-    const fadeUp = {
-        hidden: { opacity: 0, y: 30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
-    };
+    const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+    const yParallax = useTransform(scrollY, [0, 500], [0, 60]);
 
     return (
-        <motion.section className="hero section-padding" id="home" style={{ opacity }}>
-            <div className="container hero-container">
-                <motion.div
-                    className="hero-content"
-                    style={{ y: contentY }}
-                    initial="hidden"
-                    animate="visible"
-                    variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-                >
-                    <motion.h1 className="hero-title" variants={fadeUp}>
-                        BRANDS MADE YOU<br />
-                        <span className="accent-text">BUT WE MAKE BRANDS.</span>
-                    </motion.h1>
-                    <motion.h2 className="hero-subtitle" variants={fadeUp}>Let's People Recognize You</motion.h2>
-                    <motion.p className="hero-description" variants={fadeUp}>
-                        30+ years in the UAE market, we craft end-to-end signage solutions — from concept to installation featuring high-quality LED, digital, and traditional signage designed to elevate your brand presence.
-                    </motion.p>
-                    <motion.div className="hero-actions" variants={fadeUp}>
-                        <a href="/recent" className="btn-gold">Explore Our Work</a>
-                        <Link to="/services" className="btn-outline">Our Services</Link>
-                    </motion.div>
-                </motion.div>
-                <div className="hero-visual">
-                    <motion.div
-                        className="visual-container"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                    >
-                        <img src="/src/assets/identity.png" alt="Crystal Branding" className="hero-brand-img" />
-                    </motion.div>
-                </div>
+        <motion.section className="hero" id="home" style={{ opacity }}>
+            {/* Background image + overlay */}
+            <div className="hero-img-wrap">
+                <img src={heroImg} alt="Crystal Advertising" className="hero-img" />
+                <div className="hero-overlay" />
             </div>
-            <div className="hero-brand-strip" />
+
+            <motion.div
+                className="hero-inner"
+                style={{ y: yParallax }}
+                initial="hidden"
+                animate="visible"
+                variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
+            >
+                <motion.span
+                    className="hero-eyebrow"
+                    variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
+                >
+                    Ras Al Khaimah, UAE — Since 1994
+                </motion.span>
+
+                <motion.h1
+                    className="hero-title"
+                    variants={{ hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } } }}
+                >
+                    BRANDS MADE YOU<br />
+                    <span className="hero-title-gold">BUT WE MAKE<br />BRANDS.</span>
+                </motion.h1>
+
+                <motion.p
+                    className="hero-description"
+                    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } } }}
+                >
+                    30+ years crafting end-to-end signage and branding solutions
+                    across the UAE — from concept to installation.
+                </motion.p>
+
+                <motion.div
+                    className="hero-actions"
+                    variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
+                >
+                    <Link to="/portfolio" className="hero-btn-primary">
+                        View Our Work
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+                    <Link to="/services" className="hero-btn-ghost">Our Services</Link>
+                </motion.div>
+            </motion.div>
+
+
+
+            {/* Scroll cue */}
+            <motion.div
+                className="hero-scroll"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3, duration: 0.6 }}
+            >
+                <div className="hero-scroll-line" />
+                <span>Scroll</span>
+            </motion.div>
         </motion.section>
     );
 }
@@ -132,7 +136,7 @@ function AnimatedCounter({ from = 0, to, duration = 2, suffix = "", className })
 }
 
 // -------------------------------------------------------------
-// ABOUT
+// ABOUT — unchanged
 // -------------------------------------------------------------
 function About() {
     return (
@@ -146,7 +150,7 @@ function About() {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <div className="about-img-wrapper">
-                        <img src="/src/assets/logo.png" alt="Crystal Advertising" className="about-logo-img" />
+                        <img src="/src/assets/logo.png" alt="Crystal Advertising logo" className="about-logo-img" />
                         <motion.div
                             className="about-badge"
                             initial={{ scale: 0 }}
@@ -166,10 +170,12 @@ function About() {
                     viewport={{ once: true, margin: "-100px" }}
                     variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
                 >
-                    <motion.div className="section-tag" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>Who We Are</motion.div>
-                    <motion.h2 className="about-title" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>About Us</motion.h2>
+                    <motion.span className="about-eyebrow" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>Who We Are</motion.span>
+                    <motion.h2 className="about-title" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        ABOUT <span className="about-title-gold">US</span>
+                    </motion.h2>
                     <motion.p className="about-tagline" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                        Brands made you — but we make brands that last a lifetime.
+                        Brands made you — <span className="about-tagline-gold">but we make brands</span> that last a lifetime.
                     </motion.p>
                     <motion.p className="about-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
                         We are in the business of enhancing and maximizing brand recognition through <strong>Visual Merchandising</strong> and{' '}
@@ -204,79 +210,66 @@ function About() {
 }
 
 // -------------------------------------------------------------
-// RECENT WORK
+// RECENT WORK — minimal horizontal scroll strip
 // -------------------------------------------------------------
-function seededRandom(seed) {
-    let s = seed >>> 0;
-    return () => {
-        s = (Math.imul(1664525, s) + 1013904223) >>> 0;
-        return s / 0x100000000;
-    };
-}
-function generateLayout(count) {
-    const rand = seededRandom(99);
-    const COLS = 7, ROWS = 6;
-    const items = [];
-    for (let i = 0; i < count; i++) {
-        const col = i % COLS, row = Math.floor(i / COLS);
-        const cellW = 106 / COLS, cellH = 108 / ROWS;
-        const cx = -3 + col * cellW + cellW / 2, cy = -4 + row * cellH + cellH / 2;
-        const jx = (rand() - 0.5) * cellW * 0.7, jy = (rand() - 0.5) * cellH * 0.7;
-        const x = cx + jx, y = cy + jy;
-        const rotRange = rand() < 0.15 ? 20 : 12;
-        const rotation = (rand() - 0.5) * rotRange * 2;
-        const sizeRoll = rand();
-        let w, h;
-        if (sizeRoll < 0.22) { w = 150 + rand() * 55; h = 108 + rand() * 42; }
-        else if (sizeRoll < 0.65) { w = 215 + rand() * 75; h = 155 + rand() * 58; }
-        else { w = 295 + rand() * 85; h = 210 + rand() * 70; }
-        items.push({ x, y, rotation, w, h, zIndex: Math.floor(rand() * 30) + 1 });
-    }
-    return items;
-}
 const allImages = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12,
-    img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24,
-    img25, img26, img27, img28, img29, img30, img31, img32, img33, img34, img35, img36,
+    img1, img2, img3, img4, img5, img6,
+    img7, img8, img9, img10, img11, img12,
 ];
 
 function RecentWork() {
-    const [hoveredIdx, setHoveredIdx] = useState(null);
-    const layout = useMemo(() => generateLayout(allImages.length), []);
     return (
         <section className="rw-section" id="portfolio">
-            <div className="rw-header">
-                <span className="rw-label">Portfolio</span>
-                <h2 className="rw-title">FEATURED WORKS</h2>
-            </div>
-            <div className="rw-canvas">
-                {allImages.map((img, i) => {
-                    const p = layout[i];
-                    const active = hoveredIdx === i;
-                    return (
-                        <div
-                            key={i}
-                            className={`rw-card${active ? ' rw-card--on' : ''}`}
-                            style={{
-                                left: `${p.x}%`, top: `${p.y}%`,
-                                width: `${p.w}px`, height: `${p.h}px`,
-                                '--r': `${p.rotation}deg`,
-                                zIndex: active ? 200 : p.zIndex,
-                            }}
-                            onMouseEnter={() => setHoveredIdx(i)}
-                            onMouseLeave={() => setHoveredIdx(null)}
-                        >
-                            <img src={img} alt={`Work ${i + 1}`} className="rw-img" loading="lazy" draggable={false} />
+            <motion.div
+                className="rw-header"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7, ease: EASE }}
+            >
+                <div className="rw-header-left">
+                    <span className="rw-label">Portfolio</span>
+                    <h2 className="rw-heading">
+                        FEATURED<br />
+                        <span className="rw-heading-gold">WORKS.</span>
+                    </h2>
+                </div>
+                <div className="rw-header-right">
+                    <p className="rw-sub">A glimpse of what we've built across the UAE.</p>
+                    <Link to="/portfolio" className="rw-view-all">
+                        View All Projects
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+                </div>
+            </motion.div>
+
+            {/* Masonry grid — uneven like Portfolio */}
+            <div className="rw-masonry">
+                {allImages.map((img, i) => (
+                    <motion.div
+                        key={i}
+                        className="rw-masonry-item"
+                        initial={{ opacity: 0, y: 24 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: (i % 6) * 0.06, ease: EASE }}
+                    >
+                        <img src={img} alt={`Crystal Advertising project ${i + 1} — signage and branding work in UAE`} className="rw-masonry-img" loading="lazy" />
+                        <div className="rw-masonry-overlay">
+                            <span className="rw-masonry-num">#{String(i + 1).padStart(2, '0')}</span>
+                            <span className="rw-masonry-zoom">⤢</span>
                         </div>
-                    );
-                })}
+                    </motion.div>
+                ))}
             </div>
         </section>
     );
 }
 
 // -------------------------------------------------------------
-// SERVICES — redesigned grid layout matching Navbar routes
+// SERVICES — minimal accordion + image
 // -------------------------------------------------------------
 const SERVICES_DATA = [
     {
@@ -285,7 +278,6 @@ const SERVICES_DATA = [
         desc: "High-impact LED, illuminated, and fabricated signs engineered to dominate your space and maximize brand visibility.",
         img: signageImg,
         path: "/services/signage",
-        accent: "#C9A84C",
     },
     {
         tag: "02",
@@ -293,7 +285,6 @@ const SERVICES_DATA = [
         desc: "Precision flatbed UV printing on virtually any substrate — glass, acrylic, metal, wood — with razor-sharp detail.",
         img: uvPrintingImg,
         path: "/services/uv-printing",
-        accent: "#C9A84C",
     },
     {
         tag: "03",
@@ -301,7 +292,6 @@ const SERVICES_DATA = [
         desc: "Bold large-format graphics, vehicle wraps, building wraps, and banners that command attention at any scale.",
         img: outdoorImg,
         path: "/services/outdoor",
-        accent: "#C9A84C",
     },
     {
         tag: "04",
@@ -309,7 +299,6 @@ const SERVICES_DATA = [
         desc: "Branded corporate gifts, event merchandise, and custom giveaways that keep your brand in every hand.",
         img: promotionalImg,
         path: "/services/promotional",
-        accent: "#C9A84C",
     },
     {
         tag: "05",
@@ -317,7 +306,6 @@ const SERVICES_DATA = [
         desc: "Custom ceramic prints, surface cladding, and interior visual solutions that transform any branded environment.",
         img: ceramicImg,
         path: "/services/ceramic",
-        accent: "#C9A84C",
     },
     {
         tag: "06",
@@ -325,7 +313,6 @@ const SERVICES_DATA = [
         desc: "Responsive websites, digital displays, and interactive media experiences that extend your brand into the digital world.",
         img: digitalImg,
         path: "/services/digital",
-        accent: "#C9A84C",
     },
     {
         tag: "07",
@@ -333,14 +320,10 @@ const SERVICES_DATA = [
         desc: "Complete exhibition stalls, outdoor advertising structures, and large-scale event builds from concept to installation.",
         img: exhibitionImg,
         path: "/services/exhibition",
-        accent: "#C9A84C",
     },
 ];
 
 function ServicesSection() {
-    const [activeIdx, setActiveIdx] = useState(0);
-    const active = SERVICES_DATA[activeIdx];
-
     return (
         <section className="services-section" id="services">
             {/* Header */}
@@ -349,103 +332,60 @@ function ServicesSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7 }}
+                transition={{ duration: 0.7, ease: EASE }}
             >
-                <span className="rw-label">Capabilities</span>
-                <h2 className="sv-heading">WHAT WE OFFER</h2>
+                <div className="sv-header-left">
+                    <span className="rw-label">Capabilities</span>
+                    <h2 className="sv-heading">
+                        WHAT WE<br />
+                        <span className="sv-heading-gold">OFFER.</span>
+                    </h2>
+                </div>
                 <p className="sv-subheading">
-                    End-to-end branding and signage services — everything under one roof.
+                    End-to-end branding and signage services —<br />everything under one roof.
                 </p>
             </motion.div>
 
-            {/* Main layout: list + preview */}
-            <div className="sv-layout">
-                {/* Left: service list */}
-                <div className="sv-list">
-                    {SERVICES_DATA.map((svc, i) => (
-                        <motion.div
-                            key={svc.path}
-                            className={`sv-item ${activeIdx === i ? 'sv-item--active' : ''}`}
-                            onClick={() => setActiveIdx(i)}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: i * 0.07 }}
-                        >
-                            <span className="sv-num">{svc.tag}</span>
-                            <div className="sv-item-content">
-                                <span className="sv-item-title">{svc.title}</span>
-                                {activeIdx === i && (
-                                    <motion.p
-                                        className="sv-item-desc"
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: 'auto' }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.35 }}
-                                    >
-                                        {svc.desc}
-                                    </motion.p>
-                                )}
-                            </div>
-                            <Link
-                                to={svc.path}
-                                className="sv-arrow"
-                                onClick={e => e.stopPropagation()}
-                                aria-label={`View ${svc.title}`}
-                            >
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </Link>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Right: image preview */}
-                <motion.div
-                    className="sv-preview"
-                    key={activeIdx}
-                    initial={{ opacity: 0, scale: 0.97 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                >
-                    <div className="sv-preview-img-wrap">
-                        <img src={active.img} alt={active.title} className="sv-preview-img" />
-                        <div className="sv-preview-overlay">
-                            <span className="sv-preview-tag">{active.tag}</span>
-                            <h3 className="sv-preview-title">{active.title}</h3>
-                            <Link to={active.path} className="sv-preview-cta">
-                                Explore Service
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            {/* Card grid */}
+            <div className="sv-card-grid">
+                {SERVICES_DATA.map((svc, i) => (
+                    <motion.div
+                        key={svc.path}
+                        className="sv-card"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.07, ease: EASE }}
+                    >
+                        <div className="sv-card-img-wrap">
+                            <img src={svc.img} alt={svc.title} className="sv-card-img" loading="lazy" />
+                            <div className="sv-card-img-overlay" />
+                        </div>
+                        <div className="sv-card-body">
+                            <span className="sv-card-num">{svc.tag}</span>
+                            <h3 className="sv-card-title">{svc.title}</h3>
+                            <p className="sv-card-desc">{svc.desc}</p>
+                            <Link to={svc.path} className="sv-card-link">
+                                Explore
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </Link>
                         </div>
-                    </div>
-                    {/* Dots */}
-                    <div className="sv-dots">
-                        {SERVICES_DATA.map((_, i) => (
-                            <button
-                                key={i}
-                                className={`sv-dot ${activeIdx === i ? 'sv-dot--active' : ''}`}
-                                onClick={() => setActiveIdx(i)}
-                                aria-label={SERVICES_DATA[i].title}
-                            />
-                        ))}
-                    </div>
-                </motion.div>
+                    </motion.div>
+                ))}
             </div>
 
-            {/* Bottom CTA */}
+            {/* CTA */}
             <motion.div
                 className="sv-footer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.6, ease: EASE }}
             >
                 <p>Can't find what you're looking for?</p>
-                <a href="/contact" className="btn-gold">Get in Touch</a>
+                <Link to="/services" className="btn-gold">Get in Touch</Link>
             </motion.div>
         </section>
     );
@@ -457,6 +397,11 @@ function ServicesSection() {
 export default function HomePage() {
     return (
         <main className="homepage">
+            <SEO
+                title="Crystal Advertising — UAE's Leading Signage & Branding Company"
+                description="Crystal Advertising LLC — 30+ years of premium signage, UV printing, outdoor graphics, promotional merchandise & branding solutions in UAE. Based in Ras Al Khaimah since 1994."
+                path="/"
+            />
             <Navbar />
             <Hero />
             <About />

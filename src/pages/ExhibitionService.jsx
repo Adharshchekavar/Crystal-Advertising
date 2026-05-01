@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../styles/ExhibitionService.css';
 
 // Hero
@@ -210,13 +211,26 @@ export default function ExhibitionService() {
 
     return (
         <div className="exh-page" ref={pageRef}>
+            <SEO
+                title="Exhibition Stands & Outdoor Structures | Crystal Advertising UAE"
+                description="Custom exhibition stalls, laser-cut panels, wooden structures & outdoor installations in UAE. Crystal Advertising delivers turnkey exhibition solutions for trade shows across UAE & GCC."
+                path="/services/exhibition"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Exhibition & Structures', url: '/services/exhibition' },
+                ]}
+                serviceSchema={{
+                    name: 'Exhibition Stands & Outdoor Structures',
+                    description: 'Bespoke exhibition stalls, laser-cut panels, architectural wooden structures and public installations across UAE and GCC.',
+                }}
+            />
             <Navbar />
             <main className="exh-main">
 
                 {/* ── Hero ── */}
                 <section className="exh-hero">
                     <div className="exh-hero-img-wrap">
-                        <img src={heroImg} alt="Outdoor Advertising & Structures" className="exh-hero-img" />
+                        <img src={heroImg} alt="Crystal Advertising exhibition structures and outdoor installations UAE" className="exh-hero-img" />
                         <div className="exh-hero-overlay" />
                     </div>
                     <div className="exh-hero-content">
@@ -235,7 +249,12 @@ export default function ExhibitionService() {
                             timber structures and public installations — we design, fabricate,
                             and deliver structures that make your brand stand out in any space.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="exh-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="exh-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -317,9 +336,12 @@ export default function ExhibitionService() {
                             </h2>
                         </div>
                         <div className="exh-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="exh-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="exh-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

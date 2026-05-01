@@ -1,0 +1,82 @@
+/* ── CopyEmailBtn — base reset ──────────────────────────────── */
+.copy-email-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: center;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+/* Inner label */
+.copy-email-inner {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: opacity 0.2s ease;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+.copy-email-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    white-space: nowrap;
+    background: #111;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 6px 11px;
+    border-radius: 6px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 100;
+}
+
+/* Tooltip arrow */
+.copy-email-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #111;
+}
+
+/* Show tooltip on hover */
+.copy-email-btn:hover .copy-email-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ── Copied state ─────────────────────────────────────────────── */
+.copy-email-btn--copied .copy-email-tooltip {
+    background: #16a34a;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.copy-email-btn--copied .copy-email-tooltip::after {
+    border-top-color: #16a34a;
+}
+
+/* ── Inherit ALL existing button styles (sig-quote-btn, etc.) ── */
+/* The className prop passes the original class so all visual
+   styles (background, border-radius, padding, colour) are kept.
+   We only override the <a> → <button> reset above.              */

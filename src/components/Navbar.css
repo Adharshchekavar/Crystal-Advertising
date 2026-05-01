@@ -10,7 +10,7 @@
   transition: var(--transition);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(121, 113, 113, 0.199);
 }
 
 .navbar.scrolled {
@@ -107,7 +107,7 @@
 .nav-links a {
   font-weight: 500;
   font-size: 0.93rem;
-  color: var(--text-main);
+  color: #666;
   position: relative;
   text-decoration: none;
   transition: var(--transition);
@@ -199,7 +199,7 @@
 .nav-dropdown-label-link {
   font-weight: 500;
   font-size: 0.93rem;
-  color: var(--text-main);
+  color: #666;
   text-decoration: none;
   position: relative;
   transition: var(--transition);
@@ -236,7 +236,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--text-main);
+  color: #666;
   padding: 0;
   border-radius: 3px;
   transition: color 0.2s, background 0.2s;

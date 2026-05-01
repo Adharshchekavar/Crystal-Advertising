@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
+import CopyEmailBtn from '../components/CopyEmailBtn';
 import '../styles/OutdoorService.css';
 
 // Hero
@@ -202,6 +204,19 @@ export default function OutdoorService() {
 
     return (
         <div className="out-page" ref={pageRef}>
+            <SEO
+                title="Outdoor Advertising — Banners, Billboards & Vehicle Wraps | Crystal Advertising UAE"
+                description="Large-format outdoor advertising in UAE: banner printing, billboard graphics, vehicle wraps, building wraps & LED displays. Crystal Advertising — 30+ years, Ras Al Khaimah."
+                path="/services/outdoor"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Outdoor Graphics', url: '/services/outdoor' },
+                ]}
+                serviceSchema={{
+                    name: 'Outdoor Advertising & Graphics',
+                    description: 'Large-format outdoor banners, billboards, vehicle wraps, building wraps and LED display advertising across UAE.',
+                }}
+            />
             <Navbar />
             <main className="out-main">
 
@@ -227,7 +242,12 @@ export default function OutdoorService() {
                             From banners to building wraps and LED displays, we make your brand
                             impossible to ignore — wherever your audience moves.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="out-quote-btn">
+                        <a 
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE" 
+                            target="_blank" 
+                            rel="noreferrer" 
+                            className="out-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -310,9 +330,12 @@ export default function OutdoorService() {
                             </h2>
                         </div>
                         <div className="out-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="out-quote-btn">
+                            <Link 
+                                to="/contact" 
+                                className="out-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

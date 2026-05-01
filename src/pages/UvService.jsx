@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../styles/UvService.css';
 
 // Hero
@@ -18,7 +19,7 @@ import cardImg from '../assets/printing/card.png';
 
 const works = [
     {
-        title: 'UV Printing',
+        title: 'UV Flatbed Printing',
         number: '01',
         images: [uvCuttingImg],
         description: `UV printing stands at the forefront of modern print technology, curing ink instantly with ultraviolet light to produce razor-sharp detail and brilliant colour on virtually any rigid or flexible substrate. Whether you need to print directly onto acrylic, wood, glass, aluminium, or PVC board, our UV flatbed printer delivers exceptional resolution with vibrant, fade-resistant output. The result is a finished product that commands attention — durable, tactile, and visually striking in any environment.`,
@@ -203,13 +204,26 @@ export default function UvService() {
 
     return (
         <div className="uv-page" ref={pageRef}>
+            <SEO
+                title="UV Printing & Digital Print Solutions | Crystal Advertising UAE"
+                description="Professional UV printing, digital printing, offset printing, brochure & business card printing in UAE. Crystal Advertising — precision print on any substrate in Ras Al Khaimah."
+                path="/services/uv-printing"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'UV Printing', url: '/services/uv-printing' },
+                ]}
+                serviceSchema={{
+                    name: 'UV Printing & Digital Print Solutions',
+                    description: 'UV flatbed printing, digital printing, offset printing, brochures and business cards on any substrate in UAE.',
+                }}
+            />
             <Navbar />
             <main className="uv-main">
 
                 {/* ── Hero ── */}
                 <section className="uv-hero">
                     <div className="uv-hero-img-wrap">
-                        <img src={uvBackImg} alt="Printing Solutions" className="uv-hero-img" />
+                        <img src={uvBackImg} alt="Crystal Advertising UV and digital printing solutions in UAE" className="uv-hero-img" />
                         <div className="uv-hero-overlay" />
                     </div>
                     <div className="uv-hero-content">
@@ -228,7 +242,12 @@ export default function UvService() {
                             for your brand without compromise. Every substrate, every finish,
                             every run — crafted to the highest standard.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="uv-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="uv-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -309,9 +328,12 @@ export default function UvService() {
                             </h2>
                         </div>
                         <div className="uv-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="uv-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="uv-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

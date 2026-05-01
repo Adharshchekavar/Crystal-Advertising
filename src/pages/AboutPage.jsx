@@ -3,9 +3,10 @@ import { animate, useInView } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ClientsSection from '../components/ClientsSection';
+import SEO from '../components/SEO';
 import '../styles/AboutPage.css';
 
-import heroImg from '../assets/printing/brochure.png';
+import heroImg from '../assets/recent-works/img31.jpeg';
 import visionImg from '../assets/design/vision.png';
 import missionImg from '../assets/design/mission.png';
 
@@ -227,6 +228,12 @@ export default function AboutPage() {
 
     return (
         <div className="about-page">
+            <SEO
+                title="About Us — Crystal Advertising | 30 Years of UAE Branding Excellence"
+                description="Learn about Crystal Advertising LLC — established in 1994 in Ras Al Khaimah, UAE. 50+ professionals, 44,000 sq.ft workshop, 500+ clients, and 30+ years of signage & branding expertise."
+                path="/about"
+                breadcrumbs={[{ name: 'About Us', url: '/about' }]}
+            />
             <Navbar />
 
             {/* ── HERO ── */}
@@ -417,7 +424,7 @@ export default function AboutPage() {
                         </p>
                     </div>
                     <a
-                        href="https://wa.me/00971528588613"
+                        href="https://wa.me/971528588613?text=I%20Would%20like%20to%20know%20more%20about%20your%20services."
                         className="ab-cta-btn ab-fade"
                         target="_blank"
                         rel="noreferrer"

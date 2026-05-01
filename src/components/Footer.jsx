@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
+import CopyEmailBtn from './CopyEmailBtn';
 
 const QUICK_LINKS = [
     { label: "Home", path: "/" },
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
-    { label: "Portfolio", path: "/#portfolio" },
+    { label: "Portfolio", path: "/portfolio" },
     { label: "Contact", path: "/contact" },
 ];
 
@@ -13,7 +14,7 @@ const SERVICE_LINKS = [
     { label: "UV Printing", path: "/services/uv-printing" },
     { label: "Outdoor Graphics", path: "/services/outdoor" },
     { label: "Promotional Merchandise", path: "/services/promotional" },
-    { label: "Interior & Surface Solutions", path: "/services/ceramic" },
+    { label: "Interior & Surface Solutions", path: "/services/interior" },
     { label: "Digital Solutions", path: "/services/digital" },
     { label: "Outdoor Advertising & Structures", path: "/services/exhibition" },
 ];
@@ -137,7 +138,20 @@ export default function Footer() {
                         </a>
 
                         <a
-                            href="https://wa.me/00971528588613"
+                            href="tel:+971509596086"
+                            className="footer-contact-row"
+                        >
+                            <span className="ficon" style={s.iconWrap}>
+                                <PhoneIcon />
+                            </span>
+                            <div>
+                                <p style={s.platform}>Call Us</p>
+                                <p className="flabel" style={s.handle}>+971 50 959 6086</p>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://wa.me/971528588613?text=Hi%2C%0AI%20would%20like%20to%20know%20more%20about%20your%20services."
                             target="_blank"
                             rel="noreferrer"
                             className="footer-contact-row"
@@ -151,18 +165,17 @@ export default function Footer() {
                             </div>
                         </a>
 
-                        <a
-                            href="mailto:crystaladvertising777@gmail.com"
-                            className="footer-contact-row"
+                        <CopyEmailBtn
+                            className="footer-contact-row footer-contact-row--copy"
                         >
                             <span className="ficon" style={s.iconWrap}>
                                 <EmailIcon />
                             </span>
-                            <div>
+                            <div style={{ textAlign: 'left' }}>
                                 <p style={s.platform}>Email</p>
                                 <p className="flabel" style={s.handle}>crystaladvertising777@gmail.com</p>
                             </div>
-                        </a>
+                        </CopyEmailBtn>
 
                     </div>
                 </div>
@@ -208,6 +221,13 @@ const EmailIcon = () => (
         stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
         <polyline points="22,6 12,13 2,6" />
+    </svg>
+);
+
+const PhoneIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z" />
     </svg>
 );
 

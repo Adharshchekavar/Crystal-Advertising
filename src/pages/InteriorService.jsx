@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import '../styles/CeramicService.css';
+import SEO from '../components/SEO';
+import '../styles/InteriorService.css';
 
 // Hero
 import heroImg from '../assets/interior/hero.png';
@@ -194,7 +195,7 @@ function useScrollReveal() {
 }
 
 /* ── Page ── */
-export default function CeramicService() {
+export default function InteriorService() {
     const pageRef = useScrollReveal();
     const [lightbox, setLightbox] = useState(null);
 
@@ -203,13 +204,26 @@ export default function CeramicService() {
 
     return (
         <div className="cer-page" ref={pageRef}>
+            <SEO
+                title="Interior & Surface Solutions — Ceramic Prints & Custom Cladding | Crystal Advertising UAE"
+                description="Interior & surface solutions in UAE: ceramic tile printing, surface cladding, CNC woodwork, reception counters & modular interiors. Crystal Advertising, Ras Al Khaimah."
+                path="/services/interior"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Interior & Surface Solutions', url: '/services/interior' },
+                ]}
+                serviceSchema={{
+                    name: 'Interior & Surface Solutions',
+                    description: 'Surface cladding, Custom ceramic prints, CNC woodwork and interior branding solutions for commercial spaces in UAE.',
+                }}
+            />
             <Navbar />
             <main className="cer-main">
 
                 {/* ── Hero ── */}
                 <section className="cer-hero">
                     <div className="cer-hero-img-wrap">
-                        <img src={heroImg} alt="Interior & Surface Solutions" className="cer-hero-img" />
+                        <img src={heroImg} alt="Crystal Advertising interior and surface solutions UAE — CNC wood and marble work" className="cer-hero-img" />
                         <div className="cer-hero-overlay" />
                     </div>
                     <div className="cer-hero-content">
@@ -228,7 +242,12 @@ export default function CeramicService() {
                             we craft interior environments that are functional, refined, and built
                             to represent your brand at its very best.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="cer-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="cer-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -310,9 +329,12 @@ export default function CeramicService() {
                             </h2>
                         </div>
                         <div className="cer-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="cer-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="cer-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

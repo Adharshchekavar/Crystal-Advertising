@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../styles/SignageService.css';
 
 // Hero
@@ -212,13 +213,26 @@ export default function SignageService() {
 
     return (
         <div className="sig-page" ref={pageRef}>
+            <SEO
+                title="Signage Solutions — LED, Acrylic & Custom Signs | Crystal Advertising UAE"
+                description="Premium LED channel letters, 3D acrylic signs, backlit boards, shop front & wayfinding signage in UAE. Crystal Advertising — 30+ years of expert signage fabrication in Ras Al Khaimah."
+                path="/services/signage"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Signage Solution', url: '/services/signage' },
+                ]}
+                serviceSchema={{
+                    name: 'Signage Solution',
+                    description: 'Custom LED, acrylic, backlit and wayfinding signage fabrication and installation across the UAE.',
+                }}
+            />
             <Navbar />
             <main className="sig-main">
 
                 {/* ── Hero ── */}
                 <section className="sig-hero">
                     <div className="sig-hero-img-wrap">
-                        <img src={signageImg} alt="Signage Solution" className="sig-hero-img" />
+                        <img src={signageImg} alt="Crystal Advertising signage installation in UAE" className="sig-hero-img" />
                         <div className="sig-hero-overlay" />
                     </div>
                     <div className="sig-hero-content">
@@ -237,7 +251,12 @@ export default function SignageService() {
                             From LED illumination to precision-crafted acrylics — every detail
                             considered, every installation perfected.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="sig-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="sig-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -317,9 +336,12 @@ export default function SignageService() {
                             </h2>
                         </div>
                         <div className="sig-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="sig-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="sig-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

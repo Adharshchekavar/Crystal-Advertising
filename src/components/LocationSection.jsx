@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import CopyEmailBtn from './CopyEmailBtn';
 import '../styles/HomePage.css';
 
 const GOOGLE_MAPS_LINK = "https://maps.app.goo.gl/R4NJoM9Vx1NDwHWV7";
@@ -42,8 +43,7 @@ const INFO_CARDS = [
         ),
         label: "Email",
         value: "crystaladvertising777@gmail.com",
-        href: "mailto:crystaladvertising777@gmail.com",
-        isLink: true,
+        isCopyEmail: true,
     },
     {
         icon: (
@@ -66,7 +66,7 @@ const INFO_CARDS = [
             </svg>
         ),
         label: "Working Hours",
-        value: "Mon – Sat: 8:00 AM – 6:00 PM",
+        value: "Mon – Sat: 8:00 AM – 9:00 PM",
         href: null,
         isLink: false,
     },
@@ -85,7 +85,10 @@ export default function LocationSection() {
                 transition={{ duration: 0.7 }}
             >
                 <span className="rw-label">Find Us</span>
-                <h2 className="loc-heading">OUR LOCATION</h2>
+                <h2 className="loc-heading">
+                    OUR<br />
+                    <span className="clients-heading-gold">LOCATION</span>
+                </h2>
                 <p className="loc-sub">
                     Visit our facility in Ras Al Khaimah, UAE — where ideas become reality.
                 </p>
@@ -145,7 +148,11 @@ export default function LocationSection() {
                             <div className="loc-icon-wrap">{card.icon}</div>
                             <div>
                                 <p className="loc-card-label">{card.label}</p>
-                                {card.isLink ? (
+                                {card.isCopyEmail ? (
+                                    <CopyEmailBtn className="loc-card-value loc-link" style={{ padding: 0 }}>
+                                        {card.value}
+                                    </CopyEmailBtn>
+                                ) : card.isLink ? (
                                     <a
                                         href={card.href}
                                         target={card.href.startsWith("http") ? "_blank" : undefined}

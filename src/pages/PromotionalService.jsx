@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import '../styles/PromotionalService.css';
 
 // Hero
@@ -16,7 +17,7 @@ import mug2Img from '../assets/promotion/mug2.png';
 import key1Img from '../assets/promotion/key1.png';
 import key2Img from '../assets/promotion/key2.png';
 import pen1Img from '../assets/promotion/pen1.png';
-import pen2Img from '../assets/promotion/pen1.jpeg';
+import pen2Img from '../assets/promotion/pen2.jpeg';
 import bagImg from '../assets/promotion/bag.png';
 import idImg from '../assets/promotion/id.png';
 import stationaryImg from '../assets/promotion/stationary.png';
@@ -226,13 +227,26 @@ export default function PromotionalService() {
 
     return (
         <div className="promo-page" ref={pageRef}>
+            <SEO
+                title="Promotional Merchandise & Corporate Gifts | Crystal Advertising UAE"
+                description="Custom branded promotional merchandise in UAE: t-shirts, caps, mugs, keychains, pens, tote bags, ID cards & office stationery. Crystal Advertising, Ras Al Khaimah."
+                path="/services/promotional"
+                breadcrumbs={[
+                    { name: 'Services', url: '/services' },
+                    { name: 'Promotional Merchandise', url: '/services/promotional' },
+                ]}
+                serviceSchema={{
+                    name: 'Promotional Merchandise & Corporate Gifts',
+                    description: 'Custom branded apparel, accessories, corporate gifts and stationery for events and marketing campaigns in UAE.',
+                }}
+            />
             <Navbar />
             <main className="promo-main">
 
                 {/* ── Hero ── */}
                 <section className="promo-hero">
                     <div className="promo-hero-img-wrap">
-                        <img src={heroImg} alt="Promotional Merchandise" className="promo-hero-img" />
+                        <img src={heroImg} alt="Crystal Advertising promotional merchandise and branded products UAE" className="promo-hero-img" />
                         <div className="promo-hero-overlay" />
                     </div>
                     <div className="promo-hero-content">
@@ -251,7 +265,12 @@ export default function PromotionalService() {
                             From apparel to accessories, every item is crafted to carry
                             your identity into everyday life with quality that lasts.
                         </p>
-                        <a href="mailto:crystaladvertising777@gmail.com" className="promo-quote-btn">
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="promo-quote-btn"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -332,9 +351,12 @@ export default function PromotionalService() {
                             </h2>
                         </div>
                         <div className="promo-fade" style={{ transitionDelay: '0.2s' }}>
-                            <a href="mailto:crystaladvertising777@gmail.com" className="promo-quote-btn">
+                            <Link
+                                to="/contact"
+                                className="promo-quote-btn"
+                            >
                                 Contact Us Now
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </section>

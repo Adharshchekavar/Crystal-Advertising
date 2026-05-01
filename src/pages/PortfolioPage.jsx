@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 
 import img1 from "../assets/recent-works/img1.png";
 import img2 from "../assets/recent-works/img2.png";
@@ -34,11 +35,18 @@ import img28 from "../assets/recent-works/img28.png";
 import img29 from "../assets/recent-works/img29.png";
 import img30 from "../assets/recent-works/img30.jpeg";
 import img31 from "../assets/recent-works/img31.jpeg";
-import img32 from "../assets/recent-works/img32.jpeg";
+import img32 from "../assets/recent-works/img32.png";
 import img33 from "../assets/recent-works/img33.jpeg";
 import img34 from "../assets/recent-works/img34.jpeg";
 import img35 from "../assets/recent-works/img35.png";
 import img36 from "../assets/recent-works/img36.png";
+import img37 from "../assets/recent-works/img37.jpeg";
+import img38 from "../assets/recent-works/img38.jpeg";
+import img39 from "../assets/recent-works/img39.png";
+import img40 from "../assets/recent-works/img40.png";
+import img41 from "../assets/recent-works/img41.png";
+import img42 from "../assets/recent-works/img42.png";
+import img43 from "../assets/recent-works/img43.png";
 
 /* ─────────────────────────────────────────
    Scoped styles
@@ -46,7 +54,7 @@ import img36 from "../assets/recent-works/img36.png";
 const CSS = `
 .pf-page {
     min-height: 100vh;
-    background: #0e0e0e;
+    background: #f7f7f7ff;
 }
 
 /* ── Hero banner ── */
@@ -72,12 +80,14 @@ const CSS = `
 }
 
 .pf-heading {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    font-weight: 900;
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: #fff;
-    margin: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(40px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 0.92;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+    color: #4b484886;
+    margin: 0 0 2rem;
 }
 
 .pf-heading-gold { color: #C9A84C; }
@@ -98,7 +108,7 @@ const CSS = `
 .pf-hero-count {
     font-size: 4rem;
     font-weight: 900;
-    color: #C9A84C;
+    color: #98938dff;
     line-height: 1;
     letter-spacing: -2px;
 }
@@ -349,6 +359,7 @@ const ALL_IMAGES = [
     img19, img20, img21, img22, img23, img24,
     img25, img26, img27, img28, img29, img30,
     img31, img32, img33, img34, img35, img36,
+    img37, img38, img39, img40, img41, img42, img43
 ];
 
 const INITIAL_COUNT = 18;
@@ -405,6 +416,12 @@ export default function PortfolioPage() {
 
     return (
         <div className="pf-page">
+            <SEO
+                title="Portfolio — Our Signage & Branding Work | Crystal Advertising UAE"
+                description="Browse 40+ completed projects by Crystal Advertising LLC: signage, branding, print, outdoor & digital work delivered across UAE. Ras Al Khaimah since 1994."
+                path="/portfolio"
+                breadcrumbs={[{ name: 'Portfolio', url: '/portfolio' }]}
+            />
             <Navbar />
 
             {/* ── Hero ── */}
@@ -509,16 +526,16 @@ export default function PortfolioPage() {
                             onClick={(e) => e.stopPropagation()}
                         />
 
-                        <button className="pf-lightbox-close" onClick={closeLightbox}>✕</button>
+                        <button className="pf-lightbox-close" onClick={closeLightbox} aria-label="Close">✕</button>
 
                         <button
                             className="pf-lightbox-nav pf-lightbox-prev"
-                            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                            onClick={(e) => { e.stopPropagation(); prevImage(); }} aria-label="Previous image"
                         >←</button>
 
                         <button
                             className="pf-lightbox-nav pf-lightbox-next"
-                            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                            onClick={(e) => { e.stopPropagation(); nextImage(); }} aria-label="Next image"
                         >→</button>
 
                         <span className="pf-lightbox-counter">

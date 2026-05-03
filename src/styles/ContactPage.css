@@ -150,7 +150,8 @@
 }
 
 .cp-info-card--copy .cp-info-arrow {
-    margin-left: 8px; /* Reduced gap between email and copy icon */
+    margin-left: 8px;
+    /* Reduced gap between email and copy icon */
     color: #ddd;
 }
 
@@ -503,11 +504,11 @@
 
 @media (max-width: 640px) {
     .cp-heading-section {
-        padding: 120px 5vw 48px;
+        padding: 120px 5vw 40px;
     }
 
     .cp-body {
-        padding: 56px 5vw;
+        padding: 36px 5vw 48px;
     }
 
     .cp-form {

@@ -334,13 +334,19 @@
 
 .about-logo-img {
     width: 100%;
-    max-width: 440px;
-    height: 520px;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    max-width: 380px;
+    height: auto;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.12));
+    transition: transform 0.5s ease, filter 0.5s ease;
+    animation: floatLogo 5s ease-in-out infinite;
     position: relative;
     z-index: 1;
+}
+
+.about-logo-img:hover {
+    filter: drop-shadow(0 30px 80px rgba(0, 0, 0, 0.18));
+    animation-play-state: paused;
+    transform: scale(1.04);
 }
 
 @keyframes floatLogo {

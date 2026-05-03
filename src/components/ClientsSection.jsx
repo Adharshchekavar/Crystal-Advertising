@@ -2,22 +2,22 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import '../styles/HomePage.css';
 
-import baic from "../assets/clients/baic.png";
-import chaseSports from "../assets/clients/chase_sports.jpeg";
-import closeup from "../assets/clients/closeup.png";
+import baic from "../assets/clients/baic.jpg";
+import chaseSports from "../assets/clients/chase_sports.jpg";
+import closeup from "../assets/clients/closeup.jpg";
 import dominos from "../assets/clients/dominos.png";
-import ginox from "../assets/clients/ginox.jpeg";
-import panol from "../assets/clients/panol.jpeg";
-import qCafe from "../assets/clients/q_cafe.jpeg";
+import ginox from "../assets/clients/ginox.jpg";
+import panol from "../assets/clients/panol.jpg";
+import qCafe from "../assets/clients/q_cafe.jpg";
 import rakAcademy from "../assets/clients/rak_academy.png";
-import rakAirport from "../assets/clients/rak_airport.png";
-import rakCustoms from "../assets/clients/rak_customs.png";
-import rotana from "../assets/clients/rotana.png";
-import valvoline from "../assets/clients/valvoline.jpeg";
-import zinjibari from "../assets/clients/zinjibari.png";
-import beargrylls from "../assets/clients/Bear_Grylls.jpeg";
-import rakcentralbank from "../assets/clients/central.png";
-import alreem from "../assets/clients/al_reem.png";
+import rakAirport from "../assets/clients/rak_airport.jpg";
+import rakCustoms from "../assets/clients/rak_customs.jpg";
+import rotana from "../assets/clients/rotana.jpg";
+import valvoline from "../assets/clients/valvoline.jpg";
+import zinjibari from "../assets/clients/zinjibari.jpg";
+import beargrylls from "../assets/clients/Bear_Grylls.jpg";
+import rakcentralbank from "../assets/clients/central.jpg";
+import alreem from "../assets/clients/al_reem.jpg";
 
 const clients = [
     { name: "BAIC", img: baic },

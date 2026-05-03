@@ -6,15 +6,15 @@ import SEO from '../components/SEO';
 import '../styles/DigitalService.css';
 
 // Hero
-import heroImg from '../assets/digital/hero.png';
+import heroImg from '../assets/digital/hero.jpg';
 
 // What's Included imagery
-import ecommerceImg from '../assets/digital/ecommerce.png';
-import developmentImg from '../assets/digital/development.png';
-import digitalImg from '../assets/digital/digital.jpeg';
-import posterImg from '../assets/digital/poster.png';
-import appImg from '../assets/digital/app.png';
-import designImg from '../assets/digital/design.png';
+import ecommerceImg from '../assets/digital/ecommerce.jpg';
+import developmentImg from '../assets/digital/development.jpg';
+import digitalImg from '../assets/digital/digital.jpg';
+import posterImg from '../assets/digital/poster.jpg';
+import appImg from '../assets/digital/app.jpg';
+import designImg from '../assets/digital/design.jpg';
 
 const works = [
     {

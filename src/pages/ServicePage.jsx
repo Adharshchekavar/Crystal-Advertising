@@ -4,24 +4,25 @@ import '../styles/ServicePage.css';
 import SEO from '../components/SEO';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { motion } from 'framer-motion';
 
 // ── Hero slideshow images ──
-import hero1 from '../assets/hero_service/3d_sinage.jpeg';
-import hero2 from '../assets/hero_service/backlit.png';
-import hero3 from '../assets/hero_service/img10.png';
-import hero4 from '../assets/hero_service/img12.png';
-import hero5 from '../assets/hero_service/img23.png';
-import hero6 from '../assets/hero_service/img30.jpeg';
-import hero7 from '../assets/hero_service/img31.jpeg';
+import hero1 from '../assets/hero_service/3d_sinage.jpg';
+import hero2 from '../assets/hero_service/backlit.jpg';
+import hero3 from '../assets/hero_service/img10.jpg';
+import hero4 from '../assets/hero_service/img12.jpg';
+import hero5 from '../assets/hero_service/img23.jpg';
+import hero6 from '../assets/hero_service/img30.jpg';
+import hero7 from '../assets/hero_service/img31.jpg';
 
 // ── Service card images ──
-import ceramicImg from '../assets/offers/ceramic.png';
-import digitalImg from '../assets/offers/digital.png';
-import exhibitionImg from '../assets/offers/exhibtion.png';
-import outdoorImg from '../assets/offers/outdoor.jpeg';
-import promotionalImg from '../assets/offers/promotional.jpeg';
-import signageImg from '../assets/offers/signage.png';
-import uvPrintingImg from '../assets/offers/uv_printing.png';
+import ceramicImg from '../assets/offers/cnc_wood.jpg';
+import digitalImg from '../assets/offers/digital.jpg';
+import exhibitionImg from '../assets/offers/exhibtion.jpg';
+import outdoorImg from '../assets/offers/billboard.jpg';
+import promotionalImg from '../assets/offers/promotional.jpg';
+import signageImg from '../assets/offers/backlit.png';
+import uvPrintingImg from '../assets/offers/uv_printing.jpg';
 
 const heroSlides = [
     { img: hero1, label: 'Signage Solutions' },
@@ -145,40 +146,30 @@ function HeroSlideshow() {
 
 /* ── Service Card ── */
 function ServiceCard({ s, index }) {
-    const ref = useRef(null);
-    useEffect(() => {
-        const el = ref.current;
-        if (!el) return;
-        el.style.transitionDelay = `${index * 70}ms`;
-        const io = new IntersectionObserver(
-            ([e]) => { if (e.isIntersecting) { el.classList.add('sp-in'); io.unobserve(el); } },
-            { threshold: 0.08 }
-        );
-        io.observe(el);
-        return () => io.disconnect();
-    }, [index]);
-
     return (
-        <Link to={s.path} className="sp-card sp-reveal" ref={ref}>
-            {/* Image */}
-            <div className="sp-card-media">
+        <motion.div
+            className="sp-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+        >
+            <div className="sp-card-img-wrap">
                 <img src={s.img} alt={s.title} className="sp-card-img" loading="lazy" />
-                <div className="sp-card-img-shade" />
-                <span className="sp-card-num">{String(index + 1).padStart(2, '0')}</span>
+                <div className="sp-card-img-overlay" />
             </div>
-
-            {/* Body */}
             <div className="sp-card-body">
-                <span className="sp-card-tag">{s.tag}</span>
+                <span className="sp-card-num">{s.tag}</span>
                 <h3 className="sp-card-title">{s.title}</h3>
                 <p className="sp-card-desc">{s.desc}</p>
-                <div className="sp-card-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <Link to={s.path} className="sp-card-link">
+                    Explore
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
-                </div>
+                </Link>
             </div>
-        </Link>
+        </motion.div>
     );
 }
 
@@ -227,38 +218,29 @@ export default function ServicePage() {
                 </div>
             </section>
 
-            {/* ── Intro band ── */}
-            <section className="sp-intro">
-                <div className="sp-intro-inner sp-reveal" ref={introRef}>
-                    <div className="sp-intro-left">
-                        <p className="sp-eyebrow sp-eyebrow--dark">Our Capabilities</p>
-                        <h2 className="sp-intro-title">
-                            WHAT WE <span className="sp-gold">OFFER</span>
+
+            {/* ── Services Section ── */}
+            <section className="sp-grid-section" id="sp-grid">
+                {/* Header */}
+                <motion.div
+                    className="sp-header"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                >
+                    <div className="sp-header-left">
+                        <span className="sp-label">Capabilities</span>
+                        <h2 className="sp-heading">
+                            WHAT WE<br />
+                            <span className="sp-heading-gold">OFFER.</span>
                         </h2>
                     </div>
-                    <div className="sp-intro-right">
-                        <p className="sp-intro-desc">
-                            A full spectrum of branding, signage, print, and digital services —
-                            engineered to bring your vision to life with precision and craft.
-                            30+ years of excellence across the UAE and GCC.
-                        </p>
-                        <a
-                            href="https://wa.me/971528588613?text=I%20Would%20like%20to%20know%20more%20about%20your%20services."
-                            target="_blank"
-                            rel="noreferrer"
-                            className="sp-intro-link"
-                        >
-                            Get in touch
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </section>
+                    <p className="sp-subheading">
+                        End-to-end branding and signage services —<br />everything under one roof.
+                    </p>
+                </motion.div>
 
-            {/* ── Services Grid ── */}
-            <section className="sp-grid-section" id="sp-grid">
                 <div className="sp-grid">
                     {services.map((s, i) => (
                         <ServiceCard key={s.path} s={s} index={i} />

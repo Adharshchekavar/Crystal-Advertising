@@ -6,17 +6,17 @@ import SEO from '../components/SEO';
 import '../styles/SignageService.css';
 
 // Hero
-import signageImg from '../assets/recent-works/img31.jpeg';
+import signageImg from '../assets/recent-works/img31.jpg';
 
 // What's Included imagery
-import threeDImg from '../assets/sinage/3d_sinage.jpeg';
-import ledChannelImg from '../assets/sinage/led_channel.png';
-import backlitImg from '../assets/sinage/backlit.png';
-import frontSinage1 from '../assets/sinage/front_sinage_1.png';
-import frontSinage2 from '../assets/sinage/front_sinage_2.png';
-import indoorReception from '../assets/sinage/indoor_reception.png';
-import directional1 from '../assets/sinage/directional_signs_1.png';
-import directional2 from '../assets/sinage/directional_signs_2.png';
+import threeDImg from '../assets/sinage/3d_sinage.jpg';
+import ledChannelImg from '../assets/sinage/led_channel.jpg';
+import backlitImg from '../assets/sinage/backlit.jpg';
+import frontSinage1 from '../assets/sinage/front_sinage_1.jpg';
+import frontSinage2 from '../assets/sinage/front_sinage_2.jpg';
+import indoorReception from '../assets/sinage/indoor_reception.jpg';
+import directional1 from '../assets/sinage/directional_signs_1.jpg';
+import directional2 from '../assets/sinage/directional_signs_2.jpg';
 
 const works = [
     {

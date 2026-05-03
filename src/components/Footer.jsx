@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import CopyEmailBtn from './CopyEmailBtn';
 
 const QUICK_LINKS = [
     { label: "Home", path: "/" },
@@ -32,6 +31,7 @@ export default function Footer() {
           margin-left: -0.85rem;
           border-radius: 8px;
           transition: background 0.2s;
+          box-sizing: border-box;
         }
         .footer-contact-row:hover {
           background: rgba(201,168,76,0.08);
@@ -57,15 +57,48 @@ export default function Footer() {
           text-decoration: none;
         }
         .footer-bottom-link:hover { color: #C9A84C; }
+
+        /* ── Mobile responsive ── */
+        @media (max-width: 768px) {
+          .footer-inner {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 2rem !important;
+            padding: 2.5rem 1.25rem 2rem !important;
+          }
+          .footer-col-brand {
+            grid-column: 1 / -1 !important;
+          }
+          .footer-col-contact {
+            grid-column: 1 / -1 !important;
+          }
+          .footer-bottom {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            padding: 1rem 1.25rem !important;
+            gap: 8px !important;
+          }
+          .footer-contact-row {
+            margin-left: 0;
+            padding: 0.5rem 0;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .footer-inner {
+            grid-template-columns: 1fr !important;
+            gap: 1.75rem !important;
+            padding: 2rem 1.25rem 1.5rem !important;
+          }
+        }
       `}</style>
 
             {/* Gold top accent */}
             <div style={s.topAccent} />
 
-            <div style={s.inner}>
+            <div style={s.inner} className="footer-inner">
 
                 {/* Col 1 — Brand */}
-                <div style={s.col}>
+                <div style={s.col} className="footer-col-brand">
                     <img
                         src="/logo.png"
                         alt="Crystal Advertising"
@@ -118,7 +151,7 @@ export default function Footer() {
                 </div>
 
                 {/* Col 4 — Contact */}
-                <div style={s.col}>
+                <div style={s.col} className="footer-col-contact">
                     <p style={s.colLabel}>Get In Touch</p>
                     <div style={s.contactLinks}>
 
@@ -165,17 +198,32 @@ export default function Footer() {
                             </div>
                         </a>
 
-                        <CopyEmailBtn
-                            className="footer-contact-row footer-contact-row--copy"
+                        <a
+                            href="mailto:crystaladvertising777@gmail.com"
+                            className="footer-contact-row"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigator.clipboard.writeText('crystaladvertising777@gmail.com');
+                                const el = document.getElementById('footer-email-copied');
+                                if (el) { el.style.opacity = '1'; setTimeout(() => { el.style.opacity = '0'; }, 1800); }
+                            }}
                         >
                             <span className="ficon" style={s.iconWrap}>
                                 <EmailIcon />
                             </span>
-                            <div style={{ textAlign: 'left' }}>
-                                <p style={s.platform}>Email</p>
+                            <div>
+                                <p style={s.platform}>
+                                    Email
+                                    <span
+                                        id="footer-email-copied"
+                                        style={{ marginLeft: 8, fontSize: 9, color: '#C9A84C', letterSpacing: '0.1em', opacity: 0, transition: 'opacity 0.3s' }}
+                                    >
+                                        COPIED!
+                                    </span>
+                                </p>
                                 <p className="flabel" style={s.handle}>crystaladvertising777@gmail.com</p>
                             </div>
-                        </CopyEmailBtn>
+                        </a>
 
                     </div>
                 </div>
@@ -186,7 +234,7 @@ export default function Footer() {
             <div style={s.divider} />
 
             {/* Bottom bar */}
-            <div style={s.bottom}>
+            <div style={s.bottom} className="footer-bottom">
                 <span style={s.copy}>
                     © {new Date().getFullYear()} Crystal Advertising LLC. All rights reserved. — UAE
                 </span>
@@ -253,6 +301,8 @@ const s = {
         padding: "4rem 3rem 3rem",
         maxWidth: 1200,
         margin: "0 auto",
+        boxSizing: "border-box",
+        width: "100%",
     },
     col: {
         display: "flex",

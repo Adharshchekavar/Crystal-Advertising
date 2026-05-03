@@ -10,24 +10,24 @@ import heroImg from '../assets/hero.png';
 // -------------------------------------------------------------
 // ASSETS
 // -------------------------------------------------------------
-import ceramicImg from "../assets/offers/ceramic.png";
-import digitalImg from "../assets/offers/digital.png";
-import exhibitionImg from "../assets/offers/exhibtion.png";
-import outdoorImg from "../assets/offers/outdoor.jpeg";
-import promotionalImg from "../assets/offers/promotional.jpeg";
-import signageImg from "../assets/offers/signage.png";
-import uvPrintingImg from "../assets/offers/uv_printing.png";
+import ceramicImg from "../assets/offers/cnc_wood.jpg";
+import digitalImg from "../assets/offers/digital.jpg";
+import exhibitionImg from "../assets/offers/exhibtion.jpg";
+import outdoorImg from "../assets/offers/billboard.jpg";
+import promotionalImg from "../assets/offers/promotional.jpg";
+import signageImg from "../assets/offers/backlit.png";
+import uvPrintingImg from "../assets/offers/uv_printing.jpg";
 
 import img1 from '../assets/recent-works/img1.png';
-import img2 from '../assets/recent-works/img2.png';
-import img3 from '../assets/recent-works/img3.png';
+import img23 from '../assets/recent-works/img23.png';
+import img33 from '../assets/recent-works/img33.jpeg';
 import img4 from '../assets/recent-works/img4.png';
 import img5 from '../assets/recent-works/img5.png';
 import img6 from '../assets/recent-works/img6.png';
 import img7 from '../assets/recent-works/img7.png';
 import img8 from '../assets/recent-works/img8.png';
 import img9 from '../assets/recent-works/img9.png';
-import img10 from '../assets/recent-works/img10.png';
+import img19 from '../assets/recent-works/img19.png';
 import img11 from '../assets/recent-works/img11.jpeg';
 import img12 from '../assets/recent-works/img12.png';
 
@@ -210,14 +210,57 @@ function About() {
 }
 
 // -------------------------------------------------------------
-// RECENT WORK — minimal horizontal scroll strip
+// RECENT WORK — masonry grid + lightbox + mobile slider
 // -------------------------------------------------------------
 const allImages = [
-    img1, img2, img3, img4, img5, img6,
-    img7, img8, img9, img10, img11, img12,
+    img1, img23, img33, img4, img5, img6,
+    img7, img8, img9, img19, img11, img12,
 ];
 
+function Lightbox({ images, index, onClose, onPrev, onNext }) {
+    useEffect(() => {
+        const handleKey = (e) => {
+            if (e.key === 'Escape') onClose();
+            if (e.key === 'ArrowLeft') onPrev();
+            if (e.key === 'ArrowRight') onNext();
+        };
+        document.addEventListener('keydown', handleKey);
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.removeEventListener('keydown', handleKey);
+            document.body.style.overflow = '';
+        };
+    }, [onClose, onPrev, onNext]);
+
+    return (
+        <div className="rw-lightbox" onClick={onClose}>
+            <button className="rw-lb-close" onClick={onClose} aria-label="Close">✕</button>
+            <button className="rw-lb-arrow rw-lb-prev" onClick={(e) => { e.stopPropagation(); onPrev(); }} aria-label="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <div className="rw-lb-img-wrap" onClick={(e) => e.stopPropagation()}>
+                <img src={images[index]} alt={`Project ${index + 1}`} className="rw-lb-img" />
+                <span className="rw-lb-counter">{index + 1} / {images.length}</span>
+            </div>
+            <button className="rw-lb-arrow rw-lb-next" onClick={(e) => { e.stopPropagation(); onNext(); }} aria-label="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+            </button>
+        </div>
+    );
+}
+
 function RecentWork() {
+    const [lightboxIndex, setLightboxIndex] = useState(null);
+    const [sliderIndex, setSliderIndex] = useState(0);
+
+    const openLightbox = useCallback((i) => setLightboxIndex(i), []);
+    const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+    const prevLightbox = useCallback(() => setLightboxIndex(i => (i - 1 + allImages.length) % allImages.length), []);
+    const nextLightbox = useCallback(() => setLightboxIndex(i => (i + 1) % allImages.length), []);
+
+    const prevSlide = useCallback(() => setSliderIndex(i => (i - 1 + allImages.length) % allImages.length), []);
+    const nextSlide = useCallback(() => setSliderIndex(i => (i + 1) % allImages.length), []);
+
     return (
         <section className="rw-section" id="portfolio">
             <motion.div
@@ -245,8 +288,8 @@ function RecentWork() {
                 </div>
             </motion.div>
 
-            {/* Masonry grid — uneven like Portfolio */}
-            <div className="rw-masonry">
+            {/* Desktop: Masonry grid */}
+            <div className="rw-masonry rw-masonry-desktop">
                 {allImages.map((img, i) => (
                     <motion.div
                         key={i}
@@ -255,6 +298,7 @@ function RecentWork() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: (i % 6) * 0.06, ease: EASE }}
+                        onClick={() => openLightbox(i)}
                     >
                         <img src={img} alt={`Crystal Advertising project ${i + 1} — signage and branding work in UAE`} className="rw-masonry-img" loading="lazy" />
                         <div className="rw-masonry-overlay">
@@ -264,6 +308,43 @@ function RecentWork() {
                     </motion.div>
                 ))}
             </div>
+
+            {/* Mobile: Full-screen slider */}
+            <div className="rw-slider rw-slider-mobile">
+                <div className="rw-slider-track" style={{ transform: `translateX(-${sliderIndex * 100}%)` }}>
+                    {allImages.map((img, i) => (
+                        <div key={i} className="rw-slide" onClick={() => openLightbox(i)}>
+                            <img src={img} alt={`Crystal Advertising project ${i + 1}`} className="rw-slide-img" loading="lazy" />
+                            <div className="rw-slide-overlay">
+                                <span className="rw-masonry-num">#{String(i + 1).padStart(2, '0')}</span>
+                                <span className="rw-masonry-zoom">⤢</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <button className="rw-slider-arrow rw-slider-prev" onClick={prevSlide} aria-label="Previous">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6" /></svg>
+                </button>
+                <button className="rw-slider-arrow rw-slider-next" onClick={nextSlide} aria-label="Next">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6" /></svg>
+                </button>
+                <div className="rw-slider-dots">
+                    {allImages.map((_, i) => (
+                        <button key={i} className={`rw-slider-dot${i === sliderIndex ? ' active' : ''}`} onClick={() => setSliderIndex(i)} aria-label={`Go to ${i + 1}`} />
+                    ))}
+                </div>
+            </div>
+
+            {/* Lightbox */}
+            {lightboxIndex !== null && (
+                <Lightbox
+                    images={allImages}
+                    index={lightboxIndex}
+                    onClose={closeLightbox}
+                    onPrev={prevLightbox}
+                    onNext={nextLightbox}
+                />
+            )}
         </section>
     );
 }

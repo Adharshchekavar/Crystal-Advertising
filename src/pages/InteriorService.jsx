@@ -6,16 +6,16 @@ import SEO from '../components/SEO';
 import '../styles/InteriorService.css';
 
 // Hero
-import heroImg from '../assets/interior/hero.png';
+import heroImg from '../assets/interior/hero.jpg';
 
 // What's Included imagery
-import cncWoodImg from '../assets/interior/cnc_wood.png';
-import receptionDesk1Img from '../assets/interior/reception_desk1.png';
-import receptionDesk2Img from '../assets/interior/reception_desk2.png';
-import salesDeskImg from '../assets/interior/sales_desk.png';
-import artificial2Img from '../assets/interior/artificial2.png';
-import artificial1Img from '../assets/interior/artificial1.png';
-import modularImg from '../assets/interior/modular.png';
+import cncWoodImg from '../assets/interior/cnc_wood.jpg';
+import receptionDesk1Img from '../assets/interior/reception_desk1.jpg';
+import receptionDesk2Img from '../assets/interior/reception_desk2.jpg';
+import salesDeskImg from '../assets/interior/sales_desk.jpg';
+import artificial2Img from '../assets/interior/artificial2.jpg';
+import artificial1Img from '../assets/interior/artificial1.jpg';
+import modularImg from '../assets/interior/modular.jpg';
 
 const works = [
     {

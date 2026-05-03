@@ -17,14 +17,16 @@
 .dig-page {
     background: var(--dig-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .dig-main {
     background: var(--dig-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--dig-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -35,6 +37,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--dig-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .dig-hero-img-wrap {
@@ -664,13 +669,13 @@
 
     .dig-row-reverse .dig-row-media,
     .dig-row:not(.dig-row-reverse) .dig-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .dig-row-reverse .dig-row-text,
     .dig-row:not(.dig-row-reverse) .dig-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

@@ -18,14 +18,16 @@
 .uv-page {
     background: var(--uv-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .uv-main {
     background: var(--uv-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--uv-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -36,6 +38,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--uv-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .uv-hero-img-wrap {
@@ -665,13 +670,13 @@
 
     .uv-row-reverse .uv-row-media,
     .uv-row:not(.uv-row-reverse) .uv-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .uv-row-reverse .uv-row-text,
     .uv-row:not(.uv-row-reverse) .uv-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

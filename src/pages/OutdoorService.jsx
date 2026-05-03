@@ -3,19 +3,19 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import SEO from '../components/SEO';
-import CopyEmailBtn from '../components/CopyEmailBtn';
+
 import '../styles/OutdoorService.css';
 
 // Hero
-import heroImg from '../assets/outdoor/hero.png';
+import heroImg from '../assets/outdoor/hero.jpg';
 
 // What's Included imagery
-import banner1Img from '../assets/outdoor/banner1.jpeg';
-import banner2Img from '../assets/outdoor/banner2.png';
-import billboardImg from '../assets/outdoor/billboard.png';
-import vehicleImg from '../assets/outdoor/vehicle.jpeg';
-import buildingImg from '../assets/outdoor/building.jpeg';
-import displayImg from '../assets/outdoor/display.png';
+import banner1Img from '../assets/outdoor/banner1.jpg';
+import banner2Img from '../assets/outdoor/banner2.jpg';
+import billboardImg from '../assets/outdoor/billboard.jpg';
+import vehicleImg from '../assets/outdoor/vehicle.jpg';
+import buildingImg from '../assets/outdoor/building.jpg';
+import displayImg from '../assets/outdoor/display.jpg';
 
 const works = [
     {
@@ -242,10 +242,10 @@ export default function OutdoorService() {
                             From banners to building wraps and LED displays, we make your brand
                             impossible to ignore — wherever your audience moves.
                         </p>
-                        <a 
-                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE" 
-                            target="_blank" 
-                            rel="noreferrer" 
+                        <a
+                            href="https://wa.me/971528588613?text=GET%20A%20QUOTE"
+                            target="_blank"
+                            rel="noreferrer"
                             className="out-quote-btn"
                         >
                             Get a Quote
@@ -330,8 +330,8 @@ export default function OutdoorService() {
                             </h2>
                         </div>
                         <div className="out-fade" style={{ transitionDelay: '0.2s' }}>
-                            <Link 
-                                to="/contact" 
+                            <Link
+                                to="/contact"
                                 className="out-quote-btn"
                             >
                                 Contact Us Now

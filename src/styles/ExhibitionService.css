@@ -17,14 +17,16 @@
 .exh-page {
     background: var(--exh-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .exh-main {
     background: var(--exh-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--exh-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -35,6 +37,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--exh-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .exh-hero-img-wrap {
@@ -662,13 +667,13 @@
 
     .exh-row-reverse .exh-row-media,
     .exh-row:not(.exh-row-reverse) .exh-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .exh-row-reverse .exh-row-text,
     .exh-row:not(.exh-row-reverse) .exh-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

@@ -1,3 +1,6 @@
+/* ════════════════════════════════════
+   NAVBAR — BASE
+   ════════════════════════════════════ */
 .navbar {
   position: fixed;
   top: 0;
@@ -10,7 +13,9 @@
   transition: var(--transition);
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(121, 113, 113, 0.199);
+  border-bottom: 1px solid rgba(109, 102, 102, 0.495);
+  padding: 0 40px;
+  box-sizing: border-box;
 }
 
 .navbar.scrolled {
@@ -24,8 +29,12 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  overflow: visible;
 }
 
+/* ════════════════════════════════════
+   LOGO
+   ════════════════════════════════════ */
 .logo-brand {
   display: flex;
   align-items: center;
@@ -97,7 +106,9 @@
   pointer-events: none;
 }
 
-/* ── Nav links ── */
+/* ════════════════════════════════════
+   DESKTOP NAV LINKS
+   ════════════════════════════════════ */
 .nav-links {
   display: flex;
   gap: 32px;
@@ -107,7 +118,7 @@
 .nav-links a {
   font-weight: 500;
   font-size: 0.93rem;
-  color: #666;
+  color: var(--text-main);
   position: relative;
   text-decoration: none;
   transition: var(--transition);
@@ -161,45 +172,23 @@
   opacity: 0.9;
 }
 
-/* ── Mobile ── */
-@media (max-width: 768px) {
-  .navbar {
-    height: 80px;
-  }
-
-  .brand-crystal {
-    font-size: 1.5rem;
-  }
-
-  .brand-tagline {
-    display: none;
-  }
-
-  .nav-links {
-    display: none;
-  }
-}
-
 /* ════════════════════════════════════
-   SERVICES DROPDOWN
+   SERVICES DROPDOWN (desktop)
    ════════════════════════════════════ */
-
 .nav-dropdown-wrap {
   position: relative;
 }
 
-/* Group: "Services" link + chevron button side by side */
 .nav-dropdown-group {
   display: flex;
   align-items: center;
   gap: 3px;
 }
 
-/* "Services" — plain link, same style as other nav links */
 .nav-dropdown-label-link {
   font-weight: 500;
   font-size: 0.93rem;
-  color: #666;
+  color: var(--text-main);
   text-decoration: none;
   position: relative;
   transition: var(--transition);
@@ -226,7 +215,6 @@
   width: 100%;
 }
 
-/* Chevron button — tiny, no background */
 .nav-chevron-btn {
   display: inline-flex;
   align-items: center;
@@ -236,7 +224,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #666;
+  color: var(--text-main);
   padding: 0;
   border-radius: 3px;
   transition: color 0.2s, background 0.2s;
@@ -255,7 +243,6 @@
   transform: rotate(180deg);
 }
 
-/* ── Dropdown panel ── */
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 22px);
@@ -283,7 +270,6 @@
   }
 }
 
-/* Each service row */
 .nav-dropdown-item {
   display: flex;
   align-items: center;
@@ -317,7 +303,6 @@
   background: #fdf9f0;
 }
 
-/* No underline on dropdown links */
 .nav-dropdown-item::after {
   display: none !important;
 }
@@ -326,4 +311,295 @@
   flex-shrink: 0;
   color: #bbb;
   transition: color 0.15s;
+}
+
+/* ════════════════════════════════════
+   HAMBURGER BUTTON
+   ════════════════════════════════════ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1100;
+  flex-shrink: 0;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.nav-hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ════════════════════════════════════
+   MOBILE MENU OVERLAY
+   ════════════════════════════════════ */
+.nav-mobile-menu {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 998;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  visibility: hidden;
+}
+
+.nav-mobile-menu.open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.nav-mobile-links {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 40px;
+}
+
+/* Each link row */
+.nav-mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #222;
+  text-decoration: none;
+  border-bottom: 1px solid #f0f0f0;
+  transition: color 0.2s;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+}
+
+.nav-mobile-link:hover,
+.nav-mobile-link.nav-active {
+  color: var(--primary-gold);
+}
+
+/* Services accordion wrapper */
+.nav-mobile-services-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-mobile-services-btn {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Chevron icon in mobile services button */
+.nav-mobile-chevron {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.nav-mobile-chevron.open {
+  transform: rotate(180deg);
+}
+
+/* Sub-links accordion */
+.nav-mobile-sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  overflow: hidden;
+}
+
+.nav-mobile-sub.open {
+  grid-template-rows: 1fr;
+}
+
+.nav-mobile-sub>* {
+  overflow: hidden;
+}
+
+.nav-mobile-sub-inner {
+  background: #fafafa;
+  border-radius: 8px;
+  margin: 6px 0 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+.nav-mobile-sub-link {
+  display: block;
+  padding: 13px 18px;
+  font-size: 0.88rem;
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px solid #efefef;
+  transition: color 0.2s, background 0.2s;
+}
+
+.nav-mobile-sub-link:last-child {
+  border-bottom: none;
+}
+
+.nav-mobile-sub-link:hover,
+.nav-mobile-sub-link.active {
+  color: var(--primary-gold);
+  background: #fdf9f0;
+}
+
+/* Contact button at bottom */
+.nav-mobile-contact {
+  margin-top: 20px;
+  background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+  color: white !important;
+  padding: 16px 24px !important;
+  border-radius: 8px;
+  text-align: center;
+  justify-content: center !important;
+  font-weight: 600;
+  border-bottom: none !important;
+  font-size: 1rem !important;
+}
+
+.nav-mobile-contact:hover {
+  opacity: 0.9;
+  color: white !important;
+}
+
+/* Backdrop */
+.nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 997;
+  backdrop-filter: blur(2px);
+}
+
+/* ════════════════════════════════════
+   MOBILE BREAKPOINT
+   ════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Override navbar padding directly — do NOT rely on .container */
+  .navbar {
+    height: 72px;
+    padding: 0 16px;
+  }
+
+  .navbar.scrolled {
+    height: 64px;
+  }
+
+  /* Remove any container padding inside navbar on mobile */
+  .navbar .container,
+  .navbar .navbar-container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .brand-icon {
+    height: 46px;
+  }
+
+  .navbar.scrolled .brand-icon {
+    height: 40px;
+  }
+
+  .brand-crystal {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .navbar.scrolled .brand-crystal {
+    font-size: 1.3rem;
+  }
+
+  .brand-advertising {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  /* Hide desktop nav */
+  .nav-links {
+    display: none;
+  }
+
+  /* Always show hamburger — force override any conflicting styles */
+  .nav-hamburger {
+    display: flex !important;
+    flex-shrink: 0;
+  }
+
+  /* Mobile menu starts just below navbar */
+  .nav-mobile-menu {
+    top: 72px;
+  }
+
+  .navbar.scrolled~.nav-mobile-menu {
+    top: 64px;
+  }
+}
+
+/* Slightly larger phones / small tablets */
+@media (max-width: 480px) {
+  .brand-crystal {
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+
+  .brand-advertising {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  .brand-icon {
+    height: 40px;
+  }
+
+  .logo-wrapper {
+    gap: 10px;
+  }
+}
+
+/* ════════════════════════════════════
+   GAP FIX — pages that pad for navbar
+   ════════════════════════════════════ */
+/* Ensure no phantom space below the fixed navbar on any page */
+@media (max-width: 768px) {
+
+  /* The navbar is 72px tall on mobile — any hero/page-top that uses
+     padding-top to clear the navbar must match this value */
+  :root {
+    --navbar-height-mobile: 72px;
+  }
 }

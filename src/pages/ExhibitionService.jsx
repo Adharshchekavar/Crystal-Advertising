@@ -6,17 +6,17 @@ import SEO from '../components/SEO';
 import '../styles/ExhibitionService.css';
 
 // Hero
-import heroImg from '../assets/exhibition/hero.jpeg';
+import heroImg from '../assets/exhibition/hero.jpg';
 
 // What's Included imagery
-import exhibitionImg from '../assets/exhibition/exhibition.png';
-import publicImg from '../assets/exhibition/public.png';
-import moonImg from '../assets/exhibition/moon.png';
-import maskImg from '../assets/exhibition/mask.png';
-import structure1Img from '../assets/exhibition/structure1.png';
-import structure2Img from '../assets/exhibition/structure2.png';
-import stallImg from '../assets/exhibition/stall.png';
-import demoImg from '../assets/exhibition/demo.png';
+import exhibitionImg from '../assets/exhibition/exhibition.jpg';
+import publicImg from '../assets/exhibition/public.jpg';
+import moonImg from '../assets/exhibition/moon.jpg';
+import maskImg from '../assets/exhibition/mask.jpg';
+import structure1Img from '../assets/exhibition/structure1.jpg';
+import structure2Img from '../assets/exhibition/structure2.jpg';
+import stallImg from '../assets/exhibition/stall.jpg';
+import demoImg from '../assets/exhibition/demo.jpg';
 
 const works = [
     {

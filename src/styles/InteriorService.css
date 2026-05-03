@@ -17,14 +17,16 @@
 .cer-page {
     background: var(--cer-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .cer-main {
     background: var(--cer-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--cer-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -35,6 +37,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--cer-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .cer-hero-img-wrap {
@@ -664,13 +669,13 @@
 
     .cer-row-reverse .cer-row-media,
     .cer-row:not(.cer-row-reverse) .cer-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .cer-row-reverse .cer-row-text,
     .cer-row:not(.cer-row-reverse) .cer-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

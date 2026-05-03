@@ -6,21 +6,21 @@ import SEO from '../components/SEO';
 import '../styles/PromotionalService.css';
 
 // Hero
-import heroImg from '../assets/promotion/hero.png';
+import heroImg from '../assets/promotion/hero.jpg';
 
 // What's Included imagery
-import tshirt1Img from '../assets/promotion/tshirt1.png';
-import tshirt2Img from '../assets/promotion/tshirt2.png';
-import capImg from '../assets/promotion/cap.png';
-import mug1Img from '../assets/promotion/mug1.png';
-import mug2Img from '../assets/promotion/mug2.png';
-import key1Img from '../assets/promotion/key1.png';
-import key2Img from '../assets/promotion/key2.png';
-import pen1Img from '../assets/promotion/pen1.png';
-import pen2Img from '../assets/promotion/pen2.jpeg';
-import bagImg from '../assets/promotion/bag.png';
-import idImg from '../assets/promotion/id.png';
-import stationaryImg from '../assets/promotion/stationary.png';
+import tshirt1Img from '../assets/promotion/tshirt1.jpg';
+import tshirt2Img from '../assets/promotion/tshirt2.jpg';
+import capImg from '../assets/promotion/cap.jpg';
+import mug1Img from '../assets/promotion/mug1.jpg';
+import mug2Img from '../assets/promotion/mug2.jpg';
+import key1Img from '../assets/promotion/key1.jpg';
+import key2Img from '../assets/promotion/key2.jpg';
+import pen1Img from '../assets/promotion/pen1.jpg';
+import pen2Img from '../assets/promotion/pen2.jpg';
+import bagImg from '../assets/promotion/bag.jpg';
+import idImg from '../assets/promotion/id.jpg';
+import stationaryImg from '../assets/promotion/stationary.jpg';
 
 const works = [
     {

@@ -6,16 +6,16 @@ import SEO from '../components/SEO';
 import '../styles/UvService.css';
 
 // Hero
-import uvBackImg from '../assets/printing/uv_back.png';
+import uvBackImg from '../assets/printing/uv_back.jpg';
 
 // What's Included imagery
-import uvCuttingImg from '../assets/printing/uv_cutting.png';
-import digital1Img from '../assets/printing/digital_1.png';
-import digital2Img from '../assets/printing/digital_2.png';
-import offset1Img from '../assets/printing/offset_1.png';
-import offset2Img from '../assets/printing/offset_2.png';
-import brochureImg from '../assets/printing/brochure.png';
-import cardImg from '../assets/printing/card.png';
+import uvCuttingImg from '../assets/printing/uv_cutting.jpg';
+import digital1Img from '../assets/printing/digital_1.jpg';
+import digital2Img from '../assets/printing/digital_2.jpg';
+import offset1Img from '../assets/printing/offset_1.jpg';
+import offset2Img from '../assets/printing/offset_2.jpg';
+import brochureImg from '../assets/printing/brochure.jpg';
+import cardImg from '../assets/printing/card.jpg';
 
 const works = [
     {

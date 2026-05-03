@@ -18,14 +18,16 @@
 .sig-page {
     background: var(--sig-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .sig-main {
     background: var(--sig-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--sig-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -36,6 +38,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--sig-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .sig-hero-img-wrap {
@@ -440,7 +445,6 @@
     align-items: center;
 }
 
-.sig-why-left {}
 
 .sig-why-desc {
     font-size: 15px;
@@ -508,7 +512,6 @@
     gap: 3rem;
 }
 
-.sig-cta-text {}
 
 .sig-cta-title {
     font-family: 'Playfair Display', Georgia, serif;
@@ -566,13 +569,13 @@
 
     .sig-row-reverse .sig-row-media,
     .sig-row:not(.sig-row-reverse) .sig-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .sig-row-reverse .sig-row-text,
     .sig-row:not(.sig-row-reverse) .sig-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

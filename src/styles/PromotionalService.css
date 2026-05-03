@@ -17,14 +17,16 @@
 .promo-page {
     background: var(--promo-white);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .promo-main {
     background: var(--promo-white);
     min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    padding-top: 80px;
+    padding-top: 0;
     color: var(--promo-ink);
+    overflow-x: hidden;
 }
 
 /* ── Hero ── */
@@ -35,6 +37,9 @@
     align-items: center;
     overflow: hidden;
     background: var(--promo-black);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .promo-hero-img-wrap {
@@ -664,13 +669,13 @@
 
     .promo-row-reverse .promo-row-media,
     .promo-row:not(.promo-row-reverse) .promo-row-media {
-        order: 1;
+        order: 2;
         padding: 0 0 2.5rem 0;
     }
 
     .promo-row-reverse .promo-row-text,
     .promo-row:not(.promo-row-reverse) .promo-row-text {
-        order: 2;
+        order: 1;
         padding: 0;
     }
 

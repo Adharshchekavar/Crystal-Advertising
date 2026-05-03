@@ -4,11 +4,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ClientsSection from '../components/ClientsSection';
 import SEO from '../components/SEO';
+import logoImg from '../assets/logo.png';
 import '../styles/AboutPage.css';
-
-import heroImg from '../assets/recent-works/img31.jpeg';
-import visionImg from '../assets/design/vision.png';
-import missionImg from '../assets/design/mission.png';
+import heroImg from '../assets/recent-works/img31.jpg';
+import visionImg from '../assets/design/vision.jpg';
+import missionImg from '../assets/design/mission.jpg';
 
 // ── Animated Counter ──
 function AnimatedCounter({ from = 0, to, duration = 2, suffix = '', className }) {
@@ -239,7 +239,7 @@ export default function AboutPage() {
             {/* ── HERO ── */}
             <section className="ab-hero">
                 <div className="ab-hero-img-wrap">
-                    <img src={heroImg} alt="Crystal Advertising" className="ab-hero-img" />
+                    <img src={heroImg} alt="Crystal Advertising signage work in UAE" className="ab-hero-img" />
                 </div>
 
                 <div className="ab-hero-content">
@@ -319,7 +319,7 @@ export default function AboutPage() {
                         {/* Visual */}
                         <div className="ab-story-visual ab-fade-right">
                             <div className="ab-story-media">
-                                <img src="/src/assets/logo.png" alt="Crystal Advertising" style={{ objectFit: 'contain', padding: '3rem', background: '#f7f6f3' }} />
+                                <img src={logoImg} alt="Crystal Advertising logo" style={{ objectFit: 'contain', padding: '3rem', background: '#f7f6f3' }} />
                                 <div className="ab-story-frame" />
                                 <div className="about-badge">
                                     <AnimatedCounter from={0} to={30} suffix="+" className="badge-number" />
@@ -363,7 +363,7 @@ export default function AboutPage() {
                     <div className="ab-mv-row">
                         <div className="ab-mv-image-wrapper ab-fade-left">
                             <div className="ab-mv-media">
-                                <img src={visionImg} alt="Our Vision" className="ab-mv-img" />
+                                <img src={visionImg} alt="Our Vision" className="ab-mv-img" loading="lazy" />
                                 <div className="ab-mv-frame" />
                             </div>
                         </div>
@@ -395,7 +395,7 @@ export default function AboutPage() {
                         </div>
                         <div className="ab-mv-image-wrapper ab-fade-right">
                             <div className="ab-mv-media">
-                                <img src={missionImg} alt="Our Mission" className="ab-mv-img" />
+                                <img src={missionImg} alt="Our Mission" className="ab-mv-img" loading="lazy" />
                                 <div className="ab-mv-frame mv-reverse" />
                             </div>
                         </div>

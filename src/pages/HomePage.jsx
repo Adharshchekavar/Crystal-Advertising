@@ -10,6 +10,8 @@ import heroImg from '../assets/hero.png';
 // -------------------------------------------------------------
 // ASSETS
 // -------------------------------------------------------------
+import logoImg from '../assets/logo.png';
+import aboutPhoto from '../assets/recent-works/img31.jpg';
 import ceramicImg from "../assets/offers/cnc_wood.jpg";
 import digitalImg from "../assets/offers/digital.jpg";
 import exhibitionImg from "../assets/offers/exhibtion.jpg";
@@ -150,7 +152,7 @@ function About() {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
                     <div className="about-img-wrapper">
-                        <img src="/src/assets/logo.png" alt="Crystal Advertising logo" className="about-logo-img" />
+                        <img src={aboutPhoto} alt="About Crystal Advertising" className="about-logo-img" />
                         <motion.div
                             className="about-badge"
                             initial={{ scale: 0 }}

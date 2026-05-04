@@ -172,41 +172,41 @@ function About() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
                     variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-        >
-            <motion.span className="about-eyebrow" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>Who We Are</motion.span>
-            <motion.h2 className="about-title" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                ABOUT <span className="about-title-gold">US</span>
-            </motion.h2>
-            <motion.p className="about-tagline" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                Brands made you — <span className="about-tagline-gold">but we make brands</span> that last a lifetime.
-            </motion.p>
-            <motion.p className="about-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                We are in the business of enhancing and maximizing brand recognition through <strong>Visual Merchandising</strong> and{' '}
-                <strong className="gold-highlight">Signage Solutions</strong> since 1994. Today, we pride ourselves as a complete one-stop shop for anything branding and signage in the UAE.
-            </motion.p>
-            <motion.p className="about-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                We are a team of <strong>50+ dynamic professionals</strong> committed to creating and manufacturing innovative, unique branding solutions for our diverse clientele — helping them achieve their branding goals and maximize their brand recognition across the UAE market.
-            </motion.p>
-            <motion.div className="about-stats" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
-                <div className="stat-item">
-                    <AnimatedCounter from={0} to={30} suffix="+" className="stat-number" />
-                    <span className="stat-label">Years in UAE</span>
-                </div>
-                <div className="stat-divider" />
-                <div className="stat-item">
-                    <AnimatedCounter from={0} to={500} suffix="+" duration={2.5} className="stat-number" />
-                    <span className="stat-label">Projects Done</span>
-                </div>
-                <div className="stat-divider" />
-                <div className="stat-item">
-                    <AnimatedCounter from={0} to={200} suffix="+" duration={2.2} className="stat-number" />
-                    <span className="stat-label">Happy Clients</span>
-                </div>
-            </motion.div>
-            <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}>
-                <Link to="/about" className="btn-gold about-btn">Read More</Link>
-            </motion.div>
-        </motion.div>
+                >
+                    <motion.span className="about-eyebrow" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>Who We Are</motion.span>
+                    <motion.h2 className="about-title" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        ABOUT <span className="about-title-gold">US</span>
+                    </motion.h2>
+                    <motion.p className="about-tagline" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        Brands made you — <span className="about-tagline-gold">but we make brands</span> that last a lifetime.
+                    </motion.p>
+                    <motion.p className="about-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        We are in the business of enhancing and maximizing brand recognition through <strong>Visual Merchandising</strong> and{' '}
+                        <strong className="gold-highlight">Signage Solutions</strong> since 1994. Today, we pride ourselves as a complete one-stop shop for anything branding and signage in the UAE.
+                    </motion.p>
+                    <motion.p className="about-description" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        We are a team of <strong>50+ dynamic professionals</strong> committed to creating and manufacturing innovative, unique branding solutions for our diverse clientele — helping them achieve their branding goals and maximize their brand recognition across the UAE market.
+                    </motion.p>
+                    <motion.div className="about-stats" variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}>
+                        <div className="stat-item">
+                            <AnimatedCounter from={0} to={30} suffix="+" className="stat-number" />
+                            <span className="stat-label">Years in UAE</span>
+                        </div>
+                        <div className="stat-divider" />
+                        <div className="stat-item">
+                            <AnimatedCounter from={0} to={500} suffix="+" duration={2.5} className="stat-number" />
+                            <span className="stat-label">Projects Done</span>
+                        </div>
+                        <div className="stat-divider" />
+                        <div className="stat-item">
+                            <AnimatedCounter from={0} to={200} suffix="+" duration={2.2} className="stat-number" />
+                            <span className="stat-label">Happy Clients</span>
+                        </div>
+                    </motion.div>
+                    <motion.div variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}>
+                        <Link to="/about" className="btn-gold about-btn">Read More</Link>
+                    </motion.div>
+                </motion.div>
             </div >
         </section >
     );

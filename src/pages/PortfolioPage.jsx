@@ -338,7 +338,15 @@ const CSS = `
     .pf-item { margin-bottom: 6px; }
     .pf-hero { padding: 100px 5vw 48px; }
     .pf-content { padding: 40px 5vw 72px; }
-    .pf-lightbox-nav { display: none; }
+    .pf-lightbox { padding: 60px 10px; }
+    .pf-lightbox-nav {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    .pf-lightbox-prev { left: 8px; }
+    .pf-lightbox-next { right: 8px; }
 }
 `;
 
@@ -413,6 +421,16 @@ export default function PortfolioPage() {
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
     }, [lightbox]);
+
+    /* touch swipe for mobile */
+    const touchStartX = React.useRef(null);
+    const handleTouchStart = (e) => { touchStartX.current = e.touches[0].clientX; };
+    const handleTouchEnd = (e) => {
+        if (touchStartX.current === null) return;
+        const diff = touchStartX.current - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { diff > 0 ? nextImage() : prevImage(); }
+        touchStartX.current = null;
+    };
 
     return (
         <div className="pf-page">
@@ -513,6 +531,8 @@ export default function PortfolioPage() {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2 }}
                         onClick={closeLightbox}
+                        onTouchStart={handleTouchStart}
+                        onTouchEnd={handleTouchEnd}
                     >
                         <motion.img
                             key={lightbox}

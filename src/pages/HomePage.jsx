@@ -72,7 +72,7 @@ function Hero() {
                     className="hero-title"
                     variants={{ hidden: { opacity: 0, y: 32 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } } }}
                 >
-                    BRANDS SHAPE PEOPLE.<br />
+                    BRANDS SHAPE PEOPLE,<br />
                     <span className="hero-title-gold">WE SHAPE<br />BRANDS.</span>
                 </motion.h1>
 

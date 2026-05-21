@@ -44,10 +44,9 @@ import img37 from "../assets/recent-works/img37.jpg";
 import img38 from "../assets/recent-works/img38.jpg";
 import img39 from "../assets/recent-works/img39.jpg";
 import img40 from "../assets/recent-works/img40.jpg";
-import img42 from "../assets/recent-works/new1.jpeg";
-import img43 from "../assets/recent-works/img43.jpg";
-import img44 from "../assets/recent-works/new2.jpeg";
-import img45 from "../assets/recent-works/new4.jpeg";
+import img41 from "../assets/recent-works/new1.jpg";
+import img42 from "../assets/recent-works/img43.jpg";
+import img43 from "../assets/recent-works/new4.jpg";
 
 /* ─────────────────────────────────────────
    Scoped styles
@@ -362,14 +361,14 @@ if (typeof document !== 'undefined' && !document.getElementById('pf-page-styles'
    Data
 ───────────────────────────────────────── */
 const ALL_IMAGES = [
-    img1, img2, img3, img4, img5, img6,
+    img1, img2, img43, img4, img5, img6,
     img7, img8, img9, img10, img11, img12,
     img13, img14, img15, img16, img17, img18,
     img19, img20, img21, img22, img23, img24,
     img25, img26, img27, img28, img29, img30,
     img31, img32, img33, img34, img35, img36,
-    img37, img38, img39, img40, img42,
-    img43, img44, img45
+    img37, img38, img39, img40, img41,
+    img42, img3
 ];
 
 const INITIAL_COUNT = 18;

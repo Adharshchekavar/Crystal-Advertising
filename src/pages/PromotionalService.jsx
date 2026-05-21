@@ -22,7 +22,7 @@ import bagImg from '../assets/promotion/bag.jpg';
 import idImg from '../assets/promotion/id.jpg';
 import stationaryImg from '../assets/promotion/stationary.jpg';
 
-const works = [
+const works = [ 
     {
         title: 'T-Shirt Printing',
         number: '01',
